@@ -12,7 +12,7 @@
 #include <flint/nmod_mat.h>
 
 /**
- * @brief code refers to an error-correcting code, such as G1, G2, or H_A all the parameters are unsigned long integers.
+ * @brief code refers to the generator matrix of code 1, code 2 and the parity check matrix H_A's attributes. All the parameters are unsigned long integers. 
  */
 struct code {
     unsigned long n; /**< length of the code */

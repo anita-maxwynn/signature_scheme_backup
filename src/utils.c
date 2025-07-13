@@ -80,7 +80,7 @@ static int compare_ints(const void* a, const void* b) {
 }
 
 /**
- * @brief This function calculates the Hamming weight of a given matrix row.
+ * @brief Calculates the Hamming weight of a given matrix row.
  * 
  * The Hamming weight is the number of non-zero elements in a row of a matrix. This
  * function iterates through the first row of the provided matrix and counts how
@@ -88,9 +88,9 @@ static int compare_ints(const void* a, const void* b) {
  * that the matrix is represented as an nmod_mat_t type from the FLINT library, which allows for efficient access to matrix
  * entries.
  * 
- * @param array It is a pointer to an nmod_mat_t type, which represents a matrix in the FLINT library.
+ * @param array A pointer to an nmod_mat_t type, which represents a matrix in the FLINT library.
  * 
- * @return long The function returns the Hamming weight of the first row of the matrix,
+ * @return long The Hamming weight of the first row of the matrix,
  * which is the count of entries equal to 1.
  * 
  * @note The function assumes that the matrix has at least one row and that the entries
@@ -109,17 +109,16 @@ long weight(nmod_mat_t array) {
 }
 
 /**
- * @brief This function calculates the binary entropy of a given probability.
+ * @brief Calculates the binary entropy of a given probability.
  * 
  * The binary entropy function computes the entropy of a binary random variable
  * with probability p of being 1. It uses the formula: H(p) = -p * log2(p) - (1 - p) * log2(1 - p).
  * The function checks if p is within the valid range (0, 1) and returns 0 if p is 0 or 1, as there is no uncertainty in those cases. The logarithm is computed
  * using the log2 function from the math library, which calculates the base-2 logarithm.
  * 
- * @param p It is a double representing the probability of a binary event occurring, where 0
- * < p < 1.
+ * @param p A double representing the probability of a binary event occurring, where 0 < p < 1.
  * 
- * @return double It returns the binary entropy of the given probability p, which is a measure of uncertainty in bits.
+ * @return double The binary entropy of the given probability p, which is a measure of uncertainty in bits.
  * 
  * @note The function assumes that the input probability p is a valid value between 0 and 1 (exclusive). If p is outside this range, the function will return 0, indicating no uncertainty.
  * It does not handle cases where p is NaN or infinite.
@@ -134,29 +133,25 @@ double binary_entropy(double p) {
 }
 
 /**
- * @brief This function generates a random set of unique integers within a specified range
- * and sort the original set according to the ascending order.
+ * @brief Generates a random set of unique integers within a specified range and sorts the original set in ascending order.
  * 
  * The function generates a random set of unique integers from 0 to upper_bound - 1, ensuring that the size of the set is equal to size. It uses the modern Fisher-Yates shuffle algorithm to randomly permute an array
  * of integers from 0 to upper_bound - 1, and then selects the first size elements from this shuffled array. The resulting set is sorted in ascending
  * order using the qsort function with a custom comparison function.
  * 
- * @param upper_bound It is an unsigned long integer representing the upper limit of the range from
- * which unique integers will be selected. The function will generate integers in the
- * range [0, upper_bound).
- * @param size It is an unsigned long integer representing the number of unique integers to be
- * generated in the set. The function will ensure that the size of the generated
- * set is equal to this value.
- * @param set It is a pointer to an array of unsigned long integers where the generated unique
+ * @param upper_bound An unsigned long integer representing the upper limit of the range from which unique integers will be selected. The function will generate integers in the range [0, upper_bound).
+ * @param size An unsigned long integer representing the number of unique integers to be generated in the set. The function will ensure that the size of the generated set is equal to this value.
+ * @param set A pointer to an array of unsigned long integers where the generated unique
  * integers will be stored. The size of this array should be at least size elements to hold the generated set.
  * 
- * @note * 1. Initialize an array arr containing all integers from 0 to upper_bound - 1.
- * 1. Shuffle the array in-place using the modern Fisher-Yates shuffle:
+ * @note Algorithm:
+ * 1. Initialize an array arr containing all integers from 0 to upper_bound - 1.
+ * 2. Shuffle the array in-place using the modern Fisher-Yates shuffle:
  *   ◦ Iterate from the last element to the second element.
  *   ◦ In each iteration, generate a random index j such that 0 <= j <= i.
  *   ◦ Swap the elements at indices i and j.
- * 2. Copy the first size elements from the shuffled array into set.
- * 3. Sort the set array in ascending order.
+ * 3. Copy the first size elements from the shuffled array into set.
+ * 4. Sort the set array in ascending order.
  */
 // Fisher Yates shuffle
 void generate_random_set(unsigned long upper_bound, unsigned long size, unsigned long set[size]) {
@@ -181,7 +176,7 @@ void generate_random_set(unsigned long upper_bound, unsigned long size, unsigned
 }
 
 /**
- * @brief This function generates a filename for a matrix based on a prefix and its
+ * @brief Generates a filename for a matrix based on a prefix and its
  * dimensions.
  * 
  * The function constructs a filename for a matrix by concatenating a predefined
@@ -189,15 +184,15 @@ void generate_random_set(unsigned long upper_bound, unsigned long size, unsigned
  * resulting filename is formatted as "cache_dir/prefix_n_k_d.txt", where cache_dir is defined as "matrix_cache/", and prefix, n, k, and d are provided as parameters. The function allocates memory for the filename
  * string, formats it using sprintf, and returns the pointer to the generated filename.
  * 
- * @param prefix It is a pointer to a constant character string that serves as a prefix for the
+ * @param prefix A pointer to a constant character string that serves as a prefix for the
  * filename. This prefix is typically used to identify the type of matrix or its
- * specific characteristics. example prefixes could be "H_A", "G1", or "G2", depending
+ * specific characteristics. Example prefixes could be "H_A", "G1", or "G2", depending
  * on the context of the matrix being generated or stored.
- * @param n It is the length of the code.
- * @param k It is the dimension of the code.
- * @param d it is the minimum distance of the code.
+ * @param n The length of the code.
+ * @param k The dimension of the code.
+ * @param d The minimum distance of the code.
  * 
- * @return char* It returns a pointer to a dynamically allocated string containing the
+ * @return char* A pointer to a dynamically allocated string containing the
  * generated filename. If memory allocation fails, it returns NULL.
  * 
  * @note The function allocates memory for the filename string, so it is the caller's
@@ -217,19 +212,19 @@ char* generate_matrix_filename(const char* prefix, int n, int k, int d) {
 }
 
 /**
- * @brief This function saves a matrix to a text file in a specific format(FLINT matrix
+ * @brief Saves a matrix to a text file in a specific format (FLINT matrix
  * format).
  * 
- * Thhe function opens a file with the specified filename for writing. If it fails
+ * The function opens a file with the specified filename for writing. If it fails
  * to open the file, it prints an error message and returns. It then retrieves the
  * number of rows and columns of the matrix using nmod_mat_nrows and nmod_mat_ncols, respectively, and writes these dimensions to the file. After that, it iterates
  * through each entry of the matrix, retrieves its value using nmod_mat_entry, and writes it to the file in a space-separated format. Finally, it closes the
  * file.
  * 
- * @param filename It is a pointer to a constant character string that specifies the name of the
+ * @param filename A pointer to a constant character string that specifies the name of the
  * file where the matrix will be saved. The file will be created if it does not
  * exist, or overwritten if it does.
- * @param matrix It is a pointer to an nmod_mat_t type, which represents a matrix in the FLINT library. The matrix should be
+ * @param matrix A pointer to an nmod_mat_t type, which represents a matrix in the FLINT library. The matrix should be
  * initialized and populated with values before calling this function. The function
  * will save the matrix in a specific text format that includes its dimensions
  * followed by its entries.
@@ -264,7 +259,7 @@ void save_matrix(const char* filename, const nmod_mat_t matrix) {
 }
 
 /**
- * @brief This function loads a matrix from a text file in a specific format (FLINT matrix
+ * @brief Loads a matrix from a text file in a specific format (FLINT matrix
  * format).
  * 
  * It opens a file with the specified filename for reading. If it fails to open the
@@ -275,11 +270,11 @@ void save_matrix(const char* filename, const nmod_mat_t matrix) {
  * matrix from the file, setting the corresponding entry in the matrix using nmod_mat_set_entry. If it fails to read any value, it closes the file and returns 0. Finally, it
  * closes the file and returns 1 to indicate success.
  * 
- * @param filename It is a pointer to a constant character string that specifies the name of the
+ * @param filename A pointer to a constant character string that specifies the name of the
  * file from which the matrix will be loaded.
- * @param matrix It is a pointer to an nmod_mat_t type, which represents a matrix in the FLINT library.
+ * @param matrix A pointer to an nmod_mat_t type, which represents a matrix in the FLINT library.
  * 
- * @return int It returns 1 if the matrix was successfully loaded from the file, or 0 if
+ * @return int 1 if the matrix was successfully loaded from the file, or 0 if
  * there was an error (e.g., file not found, failed to read dimensions or values).
  * 
  * @note The file should be in a specific text format that includes the dimensions of the
@@ -317,18 +312,18 @@ int load_matrix(const char* filename, nmod_mat_t matrix) {
 }
 
 /**
- * @brief This function checks if a file exists by attempting to open it in read mode.
+ * @brief Checks if a file exists by attempting to open it in read mode.
  * 
  * It takes a filename as input and tries to open the file using fopen with the "r" mode, which is for reading. If the file cannot be opened (for
  * example, if it does not exist), fopen returns NULL. In this case, the function returns 0 to indicate that the file
  * does not exist. If the file is successfully opened, it is immediately closed using
  * fclose, and the function returns 1 to indicate that the file exists.
  * 
- * @param filename It is a pointer to a constant character string that specifies the name of the
+ * @param filename A pointer to a constant character string that specifies the name of the
  * file to check for existence. The function will attempt to open this file in read
  * mode.
  * 
- * @return int It returns 1 if the file exists (i.e., it can be opened in read mode), or 0
+ * @return int 1 if the file exists (i.e., it can be opened in read mode), or 0
  * if the file does not exist (i.e., it cannot be opened).
  * 
  * @note The function does not perform any additional checks on the file, such as
@@ -346,7 +341,7 @@ int file_exists(const char* filename) {
 }
 
 /**
- * @brief This function generates a filename for a seed based on a prefix and its
+ * @brief Generates a filename for a seed based on a prefix and its
  * parameters.
  * 
  * The function constructs a filename for a seed by concatenating a predefined
@@ -354,19 +349,19 @@ int file_exists(const char* filename) {
  * is formatted as "cache_dir/prefix_n_k_d_seed.bin", where cache_dir is defined as "matrix_cache/", and prefix, n, k, and d are provided as parameters. The function allocates memory for the filename
  * string, formats it using snprintf, and returns the pointer to the generated filename.
  * 
- * @param prefix It is a pointer to a constant character string that serves as a prefix for the
+ * @param prefix A pointer to a constant character string that serves as a prefix for the
  * filename. This prefix is typically used to identify the type of seed or its
  * specific characteristics, such as "H_A", "G1", or "G2", depending on the context of
  * the seed being generated or stored.
- * @param n It is an integer representing the length of the code. This value is used to
+ * @param n An integer representing the length of the code. This value is used to
  * uniquely identify the seed associated with a specific code length.
- * @param k It is an integer representing the dimension of the code. This value is used to
+ * @param k An integer representing the dimension of the code. This value is used to
  * uniquely identify the seed associated with a specific code dimension.
- * @param d It is an integer representing the minimum distance of the code. This value is
+ * @param d An integer representing the minimum distance of the code. This value is
  * used to uniquely identify the seed associated with a specific code minimum
  * distance.
  * 
- * @return char* It returns a pointer to a dynamically allocated string containing the
+ * @return char* A pointer to a dynamically allocated string containing the
  * generated filename. If memory allocation fails, it returns NULL. The caller is
  * responsible for freeing this memory when it is no longer needed.
  */
@@ -379,14 +374,14 @@ char* generate_seed_filename(const char* prefix, int n, int k, int d) {
 }
 
 /**
- * @brief It is a function that saves a seed to a binary file.
+ * @brief Saves a seed to a binary file.
  * 
  * The function takes a filename and a pointer to an unsigned char array (seed) as input. It opens the specified file in binary write mode ("wb"). If the file cannot be opened, it returns false. It then writes the seed data to the file using fwrite, which writes SEED_SIZE bytes from the seed array to the file. After writing, it closes the file and checks if the number of bytes written matches SEED_SIZE. If they match, it returns true, indicating that the seed was successfully saved; otherwise, it returns false.
  * 
- * @param filename It is the pointer to a constant character string that specifies the name of the file where the seed will be saved. The file will be created if it does not exist, or overwritten if it does.
- * @param seed It is a pointer to an unsigned char array that contains the seed data to be saved. The size of this array should be equal to SEED_SIZE, which is defined in the constants header file.
- * @return true It returns true if the seed was successfully saved to the file, meaning that the file was opened, the seed data was written, and the correct number of bytes was written.
- * @return false It returns false if there was an error opening the file or if the number of bytes written does not match SEED_SIZE, indicating that the seed was not saved successfully.
+ * @param filename A pointer to a constant character string that specifies the name of the file where the seed will be saved. The file will be created if it does not exist, or overwritten if it does.
+ * @param seed A pointer to an unsigned char array that contains the seed data to be saved. The size of this array should be equal to SEED_SIZE, which is defined in the constants header file.
+ * @return true If the seed was successfully saved to the file, meaning that the file was opened, the seed data was written, and the correct number of bytes was written.
+ * @return false If there was an error opening the file or if the number of bytes written does not match SEED_SIZE, indicating that the seed was not saved successfully.
  */
 bool save_seed(const char* filename, const unsigned char *seed) {
     FILE *file = fopen(filename, "wb");
@@ -398,14 +393,14 @@ bool save_seed(const char* filename, const unsigned char *seed) {
 }
 
 /**
- * @brief It is a function that loads a seed from a binary file.
+ * @brief Loads a seed from a binary file.
  * 
  * The function takes a filename and a pointer to an unsigned char array (seed) as input. It opens the specified file in binary read mode ("rb"). If the file cannot be opened, it returns false. It then reads SEED_SIZE bytes from the file into the seed array using fread. After reading, it closes the file and checks if the number of bytes read matches SEED_SIZE. If they match, it returns true, indicating that the seed was successfully loaded; otherwise, it returns false.
  * 
- * @param filename It is a pointer to a constant character string that specifies the name of the file from which the seed will be loaded. The file should contain binary data representing the seed.
- * @param seed It is a pointer to an unsigned char array where the loaded seed data will be stored. The size of this array should be equal to SEED_SIZE, which is defined in the constants header file.
- * @return true It returns true if the seed was successfully loaded from the file, meaning that the file was opened, the seed data was read, and the correct number of bytes was read.
- * @return false It is false if there was an error opening the file or if the number of bytes read does not match SEED_SIZE, indicating that the seed was not loaded successfully.
+ * @param filename A pointer to a constant character string that specifies the name of the file from which the seed will be loaded. The file should contain binary data representing the seed.
+ * @param seed A pointer to an unsigned char array where the loaded seed data will be stored. The size of this array should be equal to SEED_SIZE, which is defined in the constants header file.
+ * @return true If the seed was successfully loaded from the file, meaning that the file was opened, the seed data was read, and the correct number of bytes was read.
+ * @return false If there was an error opening the file or if the number of bytes read does not match SEED_SIZE, indicating that the seed was not loaded successfully.
  */
 bool load_seed(const char* filename, unsigned char *seed) {
     FILE *file = fopen(filename, "rb");
@@ -417,12 +412,12 @@ bool load_seed(const char* filename, unsigned char *seed) {
 }
 
 /**
- * @brief This function reads the contents of a file into a dynamically allocated string.
+ * @brief Reads the contents of a file into a dynamically allocated string.
  * 
  * It opens the specified file in read mode, checks if the file was opened successfully, and then reads its contents into a buffer. The function first seeks to the end of the file to determine its length, rewinds to the beginning, allocates memory for the buffer, and reads the file's contents into it. Finally, it closes the file and returns the buffer containing the file's contents as a null-terminated string. If any step fails (e.g., file not found, memory allocation failure), it prints an error message and returns NULL.
  * 
- * @param filename It is a pointer to a constant character string that specifies the name of the file to be read. The function will attempt to open this file in read mode and read its contents.
- * @return char* It returns a pointer to a dynamically allocated string containing the contents of the file. If the file cannot be opened or is empty, it returns NULL.
+ * @param filename A pointer to a constant character string that specifies the name of the file to be read. The function will attempt to open this file in read mode and read its contents.
+ * @return char* A pointer to a dynamically allocated string containing the contents of the file. If the file cannot be opened or is empty, it returns NULL.
  * 
  * @note The caller is responsible for freeing the returned buffer after use to avoid memory leaks.
  */
@@ -459,13 +454,13 @@ char *read_file(const char *filename) {
 
 
 /**
- * @brief This function reads a message from a file or generates a random message if the file is empty or does not exist.
+ * @brief Reads a message from a file or generates a random message if the file is empty or does not exist.
  * 
  * It attempts to open the specified file in read mode. If the file is successfully opened, it checks its length. If the length is zero or less, it generates a random message of a specified length and saves it to the file. If the file contains valid data, it reads the contents into a dynamically allocated string and returns it. If the file cannot be opened, it generates a random message, saves it to the file, and returns that message.
  * 
- * @param filename It is a pointer to a constant character string that specifies the name of the file to read the message from. If the file does not exist or is empty, a random message will be generated and saved to this file.
- * @param msg_len It is an integer representing the length of the message to be generated if the file is empty or does not exist. The function will generate a random message of this length using uppercase letters (A-Z).
- * @return char* It returns a pointer to a dynamically allocated string containing the message read from the file or the generated random message. If memory allocation fails or if there is an error reading the file, it returns NULL. The caller is responsible for freeing the returned string after use.
+ * @param filename A pointer to a constant character string that specifies the name of the file to read the message from. If the file does not exist or is empty, a random message will be generated and saved to this file.
+ * @param msg_len An integer representing the length of the message to be generated if the file is empty or does not exist. The function will generate a random message of this length using uppercase letters (A-Z).
+ * @return char* A pointer to a dynamically allocated string containing the message read from the file or the generated random message. If memory allocation fails or if there is an error reading the file, it returns NULL. The caller is responsible for freeing the returned string after use.
  */
 char *read_file_or_generate(const char *filename, int msg_len) {
     FILE *fp = fopen(filename, "r");
@@ -517,15 +512,15 @@ char *read_file_or_generate(const char *filename, int msg_len) {
 }
 
 /**
- * @brief This function loads parameters for the codes from a file.
+ * @brief Loads parameters for the codes from a file.
  * 
  * It opens a file named "params.txt" in read mode and reads key-value pairs from it. The keys correspond to parameters of the codes, such as "H_A_n", "H_A_k", "H_A_d", "G1_n", "G1_k", "G1_d", "G2_n", "G2_k", and "G2_d". For each key, it assigns the corresponding value to the appropriate field in the provided code structures (C_A, C1, and C2). If the file cannot be opened, it prints an error message and returns false. If all parameters are successfully loaded, it returns true.
  * 
- * @param C_A It is a pointer to the concatenated code structure, which contains parameters for the concatenated code (C_A).
- * @param C1 It is a pointer to the first generator code structure, which contains parameters for the first code (C1).
- * @param C2 It is a pointer to the second generator code structure, which contains parameters for the second code (C2).
- * @return true It returns true if the parameters were successfully loaded from the file, meaning that the file was opened, all key-value pairs were read, and the corresponding fields in the code structures were set.
- * @return false It returns false if there was an error opening the file or if any key-value pair could not be read, indicating that the parameters were not loaded successfully.
+ * @param C_A A pointer to the concatenated code structure, which contains parameters for the concatenated code (C_A).
+ * @param C1 A pointer to the first generator code structure, which contains parameters for the first code (C1).
+ * @param C2 A pointer to the second generator code structure, which contains parameters for the second code (C2).
+ * @return true If the parameters were successfully loaded from the file, meaning that the file was opened, all key-value pairs were read, and the corresponding fields in the code structures were set.
+ * @return false If there was an error opening the file or if any key-value pair could not be read, indicating that the parameters were not loaded successfully.
  * 
  * @note The function assumes that the file "params.txt" exists and is formatted correctly with key-value pairs. If any key is missing or if the file cannot be read, the function will not set the corresponding fields in the code structures.
  */
@@ -555,15 +550,15 @@ bool load_params(struct code *C_A, struct code *C1, struct code *C2) {
 }
 
 /**
- * @brief This function normalizes the length of a message to a target length by padding or truncating it.
+ * @brief Normalizes the length of a message to a target length by padding or truncating it.
  * 
  * The function takes a message, its length, a target length, and an optional pointer to store the final length. It allocates memory for a new message of the target length. If the original message is shorter than the target length, it copies the original message and fills the remaining space with random uppercase letters (A-Z). If the original message is longer than the target length, it truncates it to fit. If the lengths match, it simply copies the original message. The function returns the newly created message and updates the final length if requested.
  * 
- * @param msg It is a pointer to a constant character string that represents the original message to be normalized. The message can be of any length, and the function will either pad it with random characters or truncate it to fit the target length.
- * @param msg_len It is the length of the original message in bytes. This value is used to determine whether the message needs to be padded or truncated to match the target length.
- * @param target_len It is the desired length of the normalized message. The function will ensure that the final message has this exact length by either padding it with random characters or truncating it if necessary.
- * @param final_len_out It is a pointer to a size_t variable where the final length of the normalized message will be stored. This parameter is optional; if it is NULL, the function will not update the final length.
- * @return char* It returns a pointer to a dynamically allocated string containing the normalized message.
+ * @param msg A pointer to a constant character string that represents the original message to be normalized. The message can be of any length, and the function will either pad it with random characters or truncate it to fit the target length.
+ * @param msg_len The length of the original message in bytes. This value is used to determine whether the message needs to be padded or truncated to match the target length.
+ * @param target_len The desired length of the normalized message. The function will ensure that the final message has this exact length by either padding it with random characters or truncating it if necessary.
+ * @param final_len_out A pointer to a size_t variable where the final length of the normalized message will be stored. This parameter is optional; if it is NULL, the function will not update the final length.
+ * @return char* A pointer to a dynamically allocated string containing the normalized message.
  * 
  * @note The function allocates memory for the new message, so it is the caller's responsibility to free this memory when it is no longer needed. If memory allocation fails, the function will print an error message and return NULL.
  */

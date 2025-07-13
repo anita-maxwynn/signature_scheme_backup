@@ -34,7 +34,7 @@ void init_params(void) {
 }
 
 /**
- * @brief It generates a random number in the range [min, max].
+ * @brief Generates a random number in the range [min, max].
  * 
  * This function uses the libsodium library to generate a uniform random unsigned 32bit number. Basically, it generates a random number in the range [0, max-min] and adds with min.
  * 

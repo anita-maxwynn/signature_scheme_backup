@@ -1,6 +1,6 @@
 /**
  * @file verifier.c
- * @brief This file contains the implementation of the signature verification function.
+ * @brief Contains the implementation of the signature verification function.
  * 
  * This file contains the implementation of the signature verification function. It verifies a digital signature by checking if 
  * the product of the binary hash of the message and the generator matrix equals the product of the parity-check matrix and the transposed signature. It uses the 

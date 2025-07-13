@@ -19,7 +19,7 @@
  * 
  * It then iterates through each row and column of the matrix, printing each entry in a formatted manner. Each row is enclosed in square brackets, and entries are separated by spaces. After printing all entries in a row, it moves to the next line for the next row.
  * 
- * @param fp is the file pointer to which the matrix will be printed. This can be a file opened in write mode or stdout for console output.
+ * @param fp The file pointer to which the matrix will be printed. This can be a file opened in write mode or stdout for console output.
  * 
  * @note The function assumes that the matrix is non-empty and that the nmod_mat_t structure is properly initialized. It does not handle any errors related to file operations or matrix initialization.
  * 
@@ -44,8 +44,8 @@ void print_matrix(FILE *fp, nmod_mat_t matrix) {
  * 
  * This function takes a matrix defined by its number of rows and columns, and fills a new matrix with the transposed values. The transpose of a matrix is obtained by swapping its rows and columns, meaning that the element at position (i, j) in the original matrix becomes the element at position (j, i) in the transposed matrix. So that the elements of the firsr row in the original matrix becomes the elements at the first column in the transposed matrix.
  * 
- * @param rows It is the number of rows in the original matrix.
- * @param cols It is the number of columns in the original matrix.
+ * @param rows The number of rows in the original matrix.
+ * @param cols The number of columns in the original matrix.
  * 
  * @note The function assumes that the input matrix is well-formed and that the transpose matrix has been allocated with appropriate dimensions.
  * 
@@ -67,14 +67,14 @@ void transpose_matrix(int rows, int cols, int matrix[rows][cols], int transpose[
  * 
  * This function multiplies two matrices A and B, both defined over the finite field GF(2), and stores the result in matrix C. The multiplication is performed using bitwise operations, where addition is equivalent to XOR and multiplication is equivalent to AND. The function multiplies matrices over GF(2) using three nested loops. The outer loops iterate over rows of A and columns of B to compute each entry of the result matrix C. For each (i, j) entry, it initializes C[i][j] to 0, then uses the inner loop to XOR the bitwise AND of A[i][k] and B[k][j] into C[i][j]. This performs matrix multiplication using bitwise operations, with & as multiplication and ^ as addition in GF(2). The function assumes the matrices are properly initialized and dimensionally compatible.
  * 
- * @param A is the first matrix to be multiplied, represented as an nmod_mat_t type from the FLINT library.
- * @param B is the second matrix to be multiplied, also represented as an nmod_mat_t type from the FLINT library.
+ * @param A The first matrix to be multiplied, represented as an nmod_mat_t type from the FLINT library.
+ * @param B The second matrix to be multiplied, also represented as an nmod_mat_t type from the FLINT library.
  * 
  * @note The function assumes that the matrices A and B are compatible for multiplication, meaning the number of columns in A must equal the number of rows in B. It also assumes that the result matrix C has been initialized with appropriate dimensions to hold the product of A and B.
  * 
  * The function uses the nmod_mat_get_entry and nmod_mat_set_entry functions from the FLINT library to access and modify matrix entries. It iterates through each row of A and each column of B, computing the product for each entry in C.
  * 
- * @param C the result matrix where the product of A and B will be stored, also represented as an nmod_mat_t type from the FLINT library.
+ * @param C The result matrix where the product of A and B will be stored, also represented as an nmod_mat_t type from the FLINT library.
  * 
  * @return void This function does not return a value; it modifies the matrix C in place to store the result of the multiplication.
  */
@@ -97,14 +97,14 @@ void multiply_matrices_gf2(nmod_mat_t C, const nmod_mat_t A, const nmod_mat_t B)
  * 
  * This function is designed to swap two columns in a matrix H, specifically for the first n-k rows of the matrix. The function takes the number of rows n, the number of columns k, and the indices of the two columns to be swapped (first and second). It iterates through each row from 0 to n-k-1 and swaps the entries in the specified columns.
  * 
- * @param n is the total number of rows in the matrix H.
- * @param k is the number of columns in the matrix H, which is used to determine the range of rows that will be affected by the column swap.
- * @param first is the index of the first column to be swapped.
- * @param second is the index of the second column to be swapped.
+ * @param n The total number of rows in the matrix H.
+ * @param k The number of columns in the matrix H, which is used to determine the range of rows that will be affected by the column swap.
+ * @param first The index of the first column to be swapped.
+ * @param second The index of the second column to be swapped.
  * 
  * @note The function assumes that the indices first and second are valid column indices within the range of the matrix H, and that n and k are correctly defined such that n >= k. It does not perform any bounds checking on the indices.
  * 
- * @param H is the matrix in which the columns will be swapped, represented as an nmod_mat_t type from the FLINT library.
+ * @param H The matrix in which the columns will be swapped, represented as an nmod_mat_t type from the FLINT library.
  * 
  * The function uses the nmod_mat_get_entry and nmod_mat_set_entry functions from the FLINT library to access and modify matrix entries. It iterates through each row from 0 to n-k-1, swapping the entries in the specified columns.
  */
@@ -123,12 +123,12 @@ static void swap_columns(size_t n, size_t k, size_t first, size_t second, nmod_m
  * 
  * @note The function assumes that the matrix H is well-formed and that the number of rows n and columns k are correctly defined such that n >= k. It does not perform any bounds checking on the indices.
  * 
- * @param n is the total number of rows in the matrix H, which is used to determine the range of rows that will be affected by the transformation.
- * @param k is the number of columns in the matrix H, which is used to determine the number of rows that will be transformed into an identity matrix.
+ * @param n The total number of rows in the matrix H, which is used to determine the range of rows that will be affected by the transformation.
+ * @param k The number of columns in the matrix H, which is used to determine the number of rows that will be transformed into an identity matrix.
  * 
  * The function uses the nmod_mat_get_entry and nmod_mat_set_entry functions from the FLINT library to access and modify matrix entries. It iterates through each column of the matrix, checking for unit vectors and swapping them into the correct position.
  * 
- * @param H is the parity check matrix that will be transformed into systematic form, represented as an nmod_mat_t type from the FLINT library.
+ * @param H The parity check matrix that will be transformed into systematic form, represented as an nmod_mat_t type from the FLINT library.
  * 
  * @return void This function does not return a value; it modifies the matrix H in place to transform it into systematic form.
  */
@@ -161,9 +161,9 @@ void make_systematic(size_t n, size_t k, nmod_mat_t H) {
  * 
  * This function takes a binary matrix H, represented as a two-dimensional array of integers, and transforms it into its Reduced Row Echelon Form (RREF). The RREF is a form where each leading entry in a row is 1, and all entries in the column above and below each leading 1 are 0. The function performs forward and back substitution to achieve this form. It iterates through the columns of the matrix, finding non-zero elements to use as pivot points, and then eliminates other entries in the same column by XORing rows.
  * 
- * @param num_rows is the number of rows in the matrix H, which is used to determine the range of rows that will be affected by the transformation.
- * @param num_cols is the number of columns in the matrix H, which is used to determine the range of columns that will be affected by the transformation.
- * @param H is the binary matrix that will be transformed into Reduced Row Echelon Form, represented as a two-dimensional array of integers. Each entry in the matrix is either 0 or 1, representing elements in GF(2).
+ * @param num_rows The number of rows in the matrix H, which is used to determine the range of rows that will be affected by the transformation.
+ * @param num_cols The number of columns in the matrix H, which is used to determine the range of columns that will be affected by the transformation.
+ * @param H The binary matrix that will be transformed into Reduced Row Echelon Form, represented as a two-dimensional array of integers. Each entry in the matrix is either 0 or 1, representing elements in GF(2).
  * 
  * @note The notation (*H)[num_cols] in the function parameter list means that H is a pointer to an array of num_cols integers. In other words, H points to the first element of a 2D array where each row contains num_cols elements. This allows you to use H[i][j] inside the function to access the element at row i and column j, just like with a regular 2D array. The compiler needs to know the size of each row (num_cols) to correctly compute the memory offset for each element. This is why num_cols must be specified in the parameter type.
  */

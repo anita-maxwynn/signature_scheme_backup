@@ -1,6 +1,6 @@
 /**
  * @file signer.c
- * @brief This file contains the implementation of the signature generation function.
+ * @brief Contains the implementation of the signature generation function.
  * 
  * This file contains the implementation of the signature generation function. This function generates a signature based on 
  * the provided parameters, including the binary hash of the message, the code parameters, and the generator matrices. It uses the Sodium library for cryptographic 

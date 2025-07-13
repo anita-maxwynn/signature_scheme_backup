@@ -25,13 +25,13 @@
 #include "constants.h"
 
 /**
- * @brief It is the key generation function for the signature scheme.
+ * @brief Key generation function for the signature scheme.
  * 
- * At first it checks for command line arguments to determine if it should use seed mode or regenerate keys. It then opens the output file to write the generated keys. It retrieves user input for the parameters of the keys, initializes matrices for the codes, and generates the keys based on the specified parameters. The generated keys are written to the output file, and the matrices are cleared before closing the output file.
+ * First, it checks for command line arguments to determine if it should use seed mode or regenerate keys. It then opens the output file to write the generated keys. It retrieves user input for the parameters of the keys, initializes matrices for the codes, and generates the keys based on the specified parameters. The generated keys are written to the output file, and the matrices are cleared before closing the output file.
  * 
- * @param argc It is the number of command line arguments passed to the keygen function.
- * @param argv It is an array of strings representing the command line arguments passed to the keygen function.
- * @return int It returns 0 on success, or a non-zero value on failure.
+ * @param argc The number of command line arguments passed to the keygen function.
+ * @param argv An array of strings representing the command line arguments passed to the keygen function.
+ * @return int 0 on success, or a non-zero value on failure.
  * 
  * @see get_user_input
  * @see generate_keys
@@ -48,13 +48,13 @@
  */
 int keygen(int argc, char *argv[]);
 /**
- * @brief This function is responsible for signing a message using the signature scheme.
+ * @brief Responsible for signing a message using the signature scheme.
  * 
- * It processes command line arguments to get the message file and output signature file. At first it checks if the message file is provided, and if not, it prints usage instructions. Then it loads the parameters for the codes, reads the message from the file or generates it if not found, and normalizes the message length. It initializes matrices for the codes and generates the necessary matrices (H_A, G1, G2) using the specified parameters. The function then generates the signature by calling generate_signature, which computes the signature based on the message and the codes. Finally, it saves the generated signature, hash, and public key to the output directory, clears the matrices, and frees the allocated memory for the message.
+ * It processes command line arguments to get the message file and output signature file. First, it checks if the message file is provided, and if not, it prints usage instructions. Then it loads the parameters for the codes, reads the message from the file or generates it if not found, and normalizes the message length. It initializes matrices for the codes and generates the necessary matrices (H_A, G1, G2) using the specified parameters. The function then generates the signature by calling generate_signature, which computes the signature based on the message and the codes. Finally, it saves the generated signature, hash, and public key to the output directory, clears the matrices, and frees the allocated memory for the message.
  * 
- * @param argc It is the number of command line arguments passed to the sign function.
- * @param argv It is an array of strings representing the command line arguments passed to the sign function.
- * @return int It returns 0 on success, or a non-zero value on failure.
+ * @param argc The number of command line arguments passed to the sign function.
+ * @param argv An array of strings representing the command line arguments passed to the sign function.
+ * @return int 0 on success, or a non-zero value on failure.
  * 
  * @note This function uses Flint's nmod_mat_t for matrix operations, which are essential for the signature generation process.
  * 
@@ -68,13 +68,13 @@ int keygen(int argc, char *argv[]);
  */
 int sign(int argc, char *argv[]);
 /**
- * @brief This function is responsible for verifying a signature against a message using the signature scheme.
+ * @brief Responsible for verifying a signature against a message using the signature scheme.
  * 
- * It processes command line arguments to get the message file and signature file. At first it checks if both the message file and signature file are provided, and if not, it prints usage instructions. It loads the parameters for the codes, reads the message from the file, and initializes matrices for the codes. The function then loads the signature from the specified file and generates the parity check matrix (H_A) using the specified parameters. It also loads the hash of the message and the public key matrix (F) from the output directory. Finally, it verifies the signature by calling verify_signature, which checks if the signature is valid for the given message and parameters. The results of the verification are written to an output file.
+ * It processes command line arguments to get the message file and signature file. First, it checks if both the message file and signature file are provided, and if not, it prints usage instructions. It loads the parameters for the codes, reads the message from the file, and initializes matrices for the codes. The function then loads the signature from the specified file and generates the parity check matrix (H_A) using the specified parameters. It also loads the hash of the message and the public key matrix (F) from the output directory. Finally, it verifies the signature by calling verify_signature, which checks if the signature is valid for the given message and parameters. The results of the verification are written to an output file.
  * 
- * @param argc It is the number of command line arguments passed to the verify function.
- * @param argv It is an array of strings representing the command line arguments passed to the verify function.
- * @return int It returns 0 on success, or a non-zero value on failure.
+ * @param argc The number of command line arguments passed to the verify function.
+ * @param argv An array of strings representing the command line arguments passed to the verify function.
+ * @return int 0 on success, or a non-zero value on failure.
  * 
  * @note These functions use Flint's nmod_mat_t for matrix operations, which are essential for the signature verification process.
  * 
@@ -87,7 +87,7 @@ int sign(int argc, char *argv[]);
 int verify(int argc, char *argv[]);
 
 /**
- * @brief It is the main function of the signature scheme program.
+ * @brief Main function of the signature scheme program.
  * 
  * It handles command line arguments to either generate keys, sign a message, or
  * verify a signature. It supports three main commands: keygen, sign, and verify.
@@ -98,10 +98,10 @@ int verify(int argc, char *argv[]);
  * for the existence of necessary directories (matrix cache and output directory) and
  * initializes them if they do not exist.
  * 
- * @param argc It is the number of command line arguments passed to the program.
+ * @param argc The number of command line arguments passed to the program.
  * It is used to determine how many arguments were provided and to parse them
  * accordingly.
- * @param argv It is an array of strings representing the command line arguments passed to the
+ * @param argv An array of strings representing the command line arguments passed to the
  * program.
  * Each element in the array corresponds to a command line argument, with argv[0] being the program name and subsequent elements being the actual arguments
  * provided by the user. This array is used to determine the command to execute (key
@@ -110,7 +110,7 @@ int verify(int argc, char *argv[]);
  * commands and options to be provided, and it uses this array to handle those commands
  * appropriately.
  * 
- * @return int It returns 0 on success, or a non-zero value on failure.
+ * @return int 0 on success, or a non-zero value on failure.
  * The return value indicates the success or failure of the operation performed by
  * the main function. If the command is recognized and executed successfully (key
  * generation, signing, or verification), it returns 0. If there are errors such as
@@ -118,20 +118,6 @@ int verify(int argc, char *argv[]);
  * non-zero value to indicate failure. This allows the calling environment (such as a
  * shell or another program) to determine whether the operation was successful or if
  * there were errors that need to be addressed.
- * 
- * @see ensure_matrix_cache
- * @see ensure_output_directory
- */
-/**
- * @brief It is the main function of the signature scheme program.
- * 
- * It handles command line arguments to either generate keys, sign a message, or verify a signature. It supports three main commands: keygen, sign, and verify.
- * 
- * • keygen: Generates the keys required for the signature scheme. • sign: Signs a message using the generated keys. • verify: Verifies a signature against a message using the public key. It also checks for the existence of necessary directories (matrix cache and output directory) and initializes them if they do not exist.
- * 
- * @param argc It is the number of command line arguments passed to the program. It is used to determine how many arguments were provided and to parse them accordingly.
- * @param argv It is an array of strings representing the command line arguments passed to the program. Each element in the array corresponds to a command line argument, with argv[0] being the program name and subsequent elements being the actual arguments provided by the user. This array is used to determine the command to execute (key generation, signing, or verification) and to parse any additional options or parameters that may be required for those commands. The program expects specific commands and options to be provided, and it uses this array to handle those commands appropriately.
- * @return int It returns 0 on success, or a non-zero value on failure. The return value indicates the success or failure of the operation performed by the main function. If the command is recognized and executed successfully (key generation, signing, or verification), it returns 0. If there are errors such as missing arguments, unrecognized commands, or file I/O issues, it returns a non-zero value to indicate failure. This allows the calling environment (such as a shell or another program) to determine whether the operation was successful or if there were errors that need to be addressed.
  * 
  * @see ensure_matrix_cache
  * @see ensure_output_directory

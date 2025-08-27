@@ -60,5 +60,5 @@ output
 params.txt
 message.txt
 codewords.txt
-generator_matrix
+generator_matrix.txt
 test_weight

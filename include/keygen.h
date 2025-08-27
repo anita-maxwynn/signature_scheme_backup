@@ -11,6 +11,11 @@
 #include "matrix.h"
 
 /**
+ * @brief Generates a random seed for matrix generation
+ */
+void generate_random_seed(unsigned char *seed);
+
+/**
  * @brief Creates a generator matrix from seed.
  */
 void create_generator_matrix_from_seed(slong n, slong k, slong d,

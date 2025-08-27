@@ -57,7 +57,16 @@ int main(int argc, char *argv[]) {
     int k = m * t;          // k = t * m
 
     printf("Running codeword generation for m=%d, t=%d (n=%d, k=%d)\n", m, t, n, k);
-    printf("⚠️  There are 2^%d possible inputs. This will run until you press Ctrl+C.\n", k);
+
+    if (k > 64) {
+        printf("⚠️  k=%d is too large. Full enumeration of 2^k inputs is impossible.\n", k);
+        return 1;
+    }
+
+    unsigned __int128 limit = ((__uint128_t)1 << k);
+    printf("There are 2^%d = ", k);
+    fprint_uint128(stdout, limit);
+    printf(" possible inputs. Program will stop after that or if you press Ctrl+C.\n");
 
     // files
     FILE *txt_file = fopen("codewords.txt", "w");
@@ -92,7 +101,7 @@ int main(int argc, char *argv[]) {
         }
         fputc('\n', G_file);
     }
-    fflush(G_file); // ensure matrix is fully written
+    fflush(G_file);
 
     // input and output vectors
     nmod_mat_t input, output;
@@ -108,9 +117,8 @@ int main(int argc, char *argv[]) {
     // handle Ctrl+C cleanly
     signal(SIGINT, handle_sigint);
 
-    // iterate inputs until Ctrl+C
-    unsigned __int128 i = 0;
-    while (!g_stop) {
+    // iterate inputs until limit or Ctrl+C
+    for (unsigned __int128 i = 0; i < limit && !g_stop; i++) {
         // set input vector bits from i (big-endian bit order)
         for (int j = 0; j < k; j++) {
             int bit = (int)((i >> (k - 1 - j)) & 1);
@@ -141,14 +149,12 @@ int main(int argc, char *argv[]) {
         int w = calculate_weight(output);
         fprintf(txt_file, "  weight=%d\n", w);
 
-        fflush(txt_file); // flush every line so Ctrl+C never loses progress
-
-        i++; // next input
+        fflush(txt_file);
     }
 
     // cleanup
-    fprintf(txt_file, "# Interrupted by user. Last iter=");
-    fprint_uint128(txt_file, i);
+    fprintf(txt_file, "# Finished. Last iter=");
+    fprint_uint128(txt_file, limit - 1);
     fprintf(txt_file, "\n");
     fflush(txt_file);
 

@@ -1,0 +1,21 @@
+\doxysection{signer.\+h}
+\hypertarget{signer_8h_source}{}\label{signer_8h_source}\index{signature-\/scheme/include/signer.h@{signature-\/scheme/include/signer.h}}
+\mbox{\hyperlink{signer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ SIGNER\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ SIGNER\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <flint/nmod\_mat.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{matrix_8h}{matrix.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00016\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{signer_8h_af266967e3aac9cdead3c3995779fc05d}{generate\_signature}}(nmod\_mat\_t\ bin\_hash,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ message,\ \textcolor{keywordtype}{size\_t}\ message\_len,}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structcode}{code}}\ C\_A,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structcode}{code}}\ C1,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structcode}{code}}\ C2,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nmod\_mat\_t\ \mbox{\hyperlink{params_8c_abb953f253a118190024fe5adb406bfcf}{H\_A}},\ nmod\_mat\_t\ \mbox{\hyperlink{params_8c_af7e08370dd89aa3e493f9c9a0381af3a}{G1}},\ nmod\_mat\_t\ \mbox{\hyperlink{params_8c_ac48fb7806f2805c3e2ac08237863ee4b}{G2}},}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nmod\_mat\_t\ F,\ nmod\_mat\_t\ signature,\ FILE*\ output\_file);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

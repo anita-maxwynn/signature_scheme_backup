@@ -1,0 +1,201 @@
+\doxysection{signature-\/scheme/include/keygen.h File Reference}
+\hypertarget{keygen_8h}{}\label{keygen_8h}\index{signature-\/scheme/include/keygen.h@{signature-\/scheme/include/keygen.h}}
+
+
+It is the header file for the key generation module.  
+
+
+{\ttfamily \#include $<$flint/nmod\+\_\+mat.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}matrix.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{keygen_8h_a204bf37acc3588b6f477c4a596696196}{create\+\_\+generator\+\_\+matrix\+\_\+from\+\_\+seed}} (slong n, slong k, slong d, nmod\+\_\+mat\+\_\+t gen\+\_\+matrix, const unsigned char \texorpdfstring{$\ast$}{*}seed, FILE \texorpdfstring{$\ast$}{*}output\+\_\+file)
+\begin{DoxyCompactList}\small\item\em Creates a generator matrix from seed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{keygen_8h_a9fd818f1cb7766e64fabb4002731329b}{generate\+\_\+parity\+\_\+check\+\_\+matrix\+\_\+from\+\_\+seed}} (slong n, slong k, slong d, nmod\+\_\+mat\+\_\+t H, const unsigned char \texorpdfstring{$\ast$}{*}seed, FILE \texorpdfstring{$\ast$}{*}output\+\_\+file)
+\begin{DoxyCompactList}\small\item\em Generates a parity check matrix from a seed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{keygen_8h_a5e0b69ad3033a8fdc973789a0abd4b93}{get\+\_\+or\+\_\+generate\+\_\+matrix\+\_\+with\+\_\+seed}} (const char \texorpdfstring{$\ast$}{*}prefix, int n, int k, int d, nmod\+\_\+mat\+\_\+t matrix, void(\texorpdfstring{$\ast$}{*}generate\+\_\+func)(slong, slong, slong, nmod\+\_\+mat\+\_\+t, FILE \texorpdfstring{$\ast$}{*}), void(\texorpdfstring{$\ast$}{*}generate\+\_\+from\+\_\+seed\+\_\+func)(slong, slong, slong, nmod\+\_\+mat\+\_\+t, const unsigned char \texorpdfstring{$\ast$}{*}, FILE \texorpdfstring{$\ast$}{*}), FILE \texorpdfstring{$\ast$}{*}output\+\_\+file, bool regenerate, bool use\+\_\+seed\+\_\+mode, unsigned char \texorpdfstring{$\ast$}{*}seed\+\_\+out)
+\begin{DoxyCompactList}\small\item\em Gets or generates matrix with seed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{keygen_8h_a234de192b3dd4ce89cc8dca7cdf93003}{generate\+\_\+keys}} (struct \mbox{\hyperlink{structcode}{code}} \texorpdfstring{$\ast$}{*}C\+\_\+A, struct \mbox{\hyperlink{structcode}{code}} \texorpdfstring{$\ast$}{*}C1, struct \mbox{\hyperlink{structcode}{code}} \texorpdfstring{$\ast$}{*}C2, nmod\+\_\+mat\+\_\+t \mbox{\hyperlink{params_8c_abb953f253a118190024fe5adb406bfcf}{H\+\_\+A}}, nmod\+\_\+mat\+\_\+t \mbox{\hyperlink{params_8c_af7e08370dd89aa3e493f9c9a0381af3a}{G1}}, nmod\+\_\+mat\+\_\+t \mbox{\hyperlink{params_8c_ac48fb7806f2805c3e2ac08237863ee4b}{G2}}, bool use\+\_\+seed\+\_\+mode, bool regenerate, FILE \texorpdfstring{$\ast$}{*}output\+\_\+file, unsigned char \texorpdfstring{$\ast$}{*}h\+\_\+a\+\_\+seed, unsigned char \texorpdfstring{$\ast$}{*}g1\+\_\+seed, unsigned char \texorpdfstring{$\ast$}{*}g2\+\_\+seed)
+\begin{DoxyCompactList}\small\item\em Generates keys for a signature scheme. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+It is the header file for the key generation module. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{keygen_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{keygen_8h_a204bf37acc3588b6f477c4a596696196}\index{keygen.h@{keygen.h}!create\_generator\_matrix\_from\_seed@{create\_generator\_matrix\_from\_seed}}
+\index{create\_generator\_matrix\_from\_seed@{create\_generator\_matrix\_from\_seed}!keygen.h@{keygen.h}}
+\doxysubsubsection{\texorpdfstring{create\_generator\_matrix\_from\_seed()}{create\_generator\_matrix\_from\_seed()}}
+{\footnotesize\ttfamily \label{keygen_8h_a204bf37acc3588b6f477c4a596696196} 
+void create\+\_\+generator\+\_\+matrix\+\_\+from\+\_\+seed (\begin{DoxyParamCaption}\item[{slong}]{n}{, }\item[{slong}]{k}{, }\item[{slong}]{d}{, }\item[{nmod\+\_\+mat\+\_\+t}]{gen\+\_\+matrix}{, }\item[{const unsigned char \texorpdfstring{$\ast$}{*}}]{seed}{, }\item[{FILE \texorpdfstring{$\ast$}{*}}]{output\+\_\+file}{}\end{DoxyParamCaption})}
+
+
+
+Creates a generator matrix from seed. 
+
+Creates a generator matrix from seed.
+
+This function generates a generator matrix of size k x n using a deterministic approach based on a provided seed. The seed is used to generate random entries in the matrix, ensuring that the same seed will always produce the same matrix. The entries are generated modulo MOD. The process involves the following steps\+:
+\begin{DoxyEnumerate}
+\item Stream Buffer Allocation\+: A buffer (stream) is allocated to hold the random bytes needed for the matrix entries. The size of this buffer is determined by the number of entries in the matrix (k \texorpdfstring{$\ast$}{*} n) multiplied by the size of each entry (4 bytes for a uint32\+\_\+t).
+\item Deterministic Random Generation\+: The randombytes\+\_\+buf\+\_\+deterministic function from the Sodium library is used to fill the buffer with random bytes based on the provided seed. This ensures that the same seed will always produce the same sequence of random bytes. It\textquotesingle{}s important to note that this function uses the Cha\+Cha20 algorithm under the hood for secure random number generation.
+\item Matrix Entry Population\+: The function iterates over each entry in the generator matrix and fills it with values derived from the buffer. Each entry is constructed by combining 4 bytes from the buffer into a single uint32\+\_\+t value, which is then reduced modulo MOD to fit within the required range.
+\item Memory Cleanup\+: The allocated buffer is freed to avoid memory leaks.
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Note}
+The function does not return any value; it directly modifies the provided gen\+\_\+matrix object. It also requires a seed to ensure deterministic behavior, which is passed as an argument.
+
+Chacha20\+:-\/ It is a stream cipher that is designed to be fast and secure. It operates on 64-\/byte blocks and uses a 256-\/bit key, which is suitable for generating random numbers in this context. It takes streams of bytes, a key and nonce/count as input and produces a key stream as output. This is particularly useful for generating random matrices in cryptographic applications, ensuring that the same seed will always produce the same matrix. In this implementation, the seed is used as key ,stream as the input stream and the nonce is fixed(0). So evevrytime the function is called with the same seed, it will produce the same output stream.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The total number of columns in the generator matrix. It represents the length of the codewords generated by the matrix. \\
+\hline
+{\em k} & The number of rows in the generator matrix. It represents the dimension of the code, which is the number of information symbols that can be encoded. \\
+\hline
+{\em d} & The minimum distance of the code. This parameter is not directly used in the function but is typically relevant for the properties of the code being generated. \\
+\hline
+{\em gen\+\_\+matrix} & A pointer to an nmod\+\_\+mat\+\_\+t type, which represents the generator matrix to be created. The function initializes this matrix with random entries modulo MOD. \\
+\hline
+{\em seed} & A pointer to an unsigned char array that serves as the seed for the deterministic random number generation. The size of this array should be equal to SEED\+\_\+\+SIZE, which is defined in the constants header file. \\
+\hline
+{\em output\+\_\+file} & A pointer to a FILE object where any output or debug information can be written.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void This function does not return any value. It modifies the provided gen\+\_\+matrix object directly and fills it with values derived from the seed. 
+\end{DoxyReturn}
+\Hypertarget{keygen_8h_a234de192b3dd4ce89cc8dca7cdf93003}\index{keygen.h@{keygen.h}!generate\_keys@{generate\_keys}}
+\index{generate\_keys@{generate\_keys}!keygen.h@{keygen.h}}
+\doxysubsubsection{\texorpdfstring{generate\_keys()}{generate\_keys()}}
+{\footnotesize\ttfamily \label{keygen_8h_a234de192b3dd4ce89cc8dca7cdf93003} 
+void generate\+\_\+keys (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structcode}{code}} \texorpdfstring{$\ast$}{*}}]{C\+\_\+A}{, }\item[{struct \mbox{\hyperlink{structcode}{code}} \texorpdfstring{$\ast$}{*}}]{C1}{, }\item[{struct \mbox{\hyperlink{structcode}{code}} \texorpdfstring{$\ast$}{*}}]{C2}{, }\item[{nmod\+\_\+mat\+\_\+t}]{H\+\_\+A}{, }\item[{nmod\+\_\+mat\+\_\+t}]{G1}{, }\item[{nmod\+\_\+mat\+\_\+t}]{G2}{, }\item[{bool}]{use\+\_\+seed\+\_\+mode}{, }\item[{bool}]{regenerate}{, }\item[{FILE \texorpdfstring{$\ast$}{*}}]{output\+\_\+file}{, }\item[{unsigned char \texorpdfstring{$\ast$}{*}}]{h\+\_\+a\+\_\+seed}{, }\item[{unsigned char \texorpdfstring{$\ast$}{*}}]{g1\+\_\+seed}{, }\item[{unsigned char \texorpdfstring{$\ast$}{*}}]{g2\+\_\+seed}{}\end{DoxyParamCaption})}
+
+
+
+Generates keys for a signature scheme. 
+
+Generates keys for a signature scheme.
+
+This function generates keys for a signature scheme by creating a parity check matrix (H\+\_\+A) and two generator matrices (G1 and G2) based on the provided code parameters (C\+\_\+A, C1, C2). It supports both random generation and seed-\/based generation of matrices. The generated matrices are saved to files, and if seed-\/based generation is used, the seeds are also saved.
+
+
+\begin{DoxyParams}{Parameters}
+{\em C\+\_\+A} & A pointer to a struct code object that contains the parameters for the first code, including its length (n), dimension (k), and minimum distance (d). This code is used to generate the parity check matrix H\+\_\+A. \\
+\hline
+{\em C1} & A pointer to a struct code object that contains the parameters for the first generator code, including its length (n), dimension (k), and minimum distance (d). This code is used to generate the first generator matrix G1. \\
+\hline
+{\em C2} & A pointer to a struct code object that contains the parameters for the second generator code, including its length (n), dimension (k), and minimum distance (d). This code is used to generate the second generator matrix G2. \\
+\hline
+{\em H\+\_\+A} & A pointer to an nmod\+\_\+mat\+\_\+t type, which represents the parity check matrix H\+\_\+A to be generated. The function initializes this matrix with random entries or from a seed, depending on the options provided. \\
+\hline
+{\em G1} & A pointer to an nmod\+\_\+mat\+\_\+t type, which represents the first generator matrix G1 to be generated. The function initializes this matrix with random entries or from a seed, depending on the options provided. \\
+\hline
+{\em G2} & A pointer to an nmod\+\_\+mat\+\_\+t type, which represents the second generator matrix G2 to be generated. The function initializes this matrix with random entries or from a seed, depending on the options provided. \\
+\hline
+{\em use\+\_\+seed\+\_\+mode} & A boolean flag that indicates whether to use seed-\/based generation for the matrices. If set to true, the function will generate the matrices using a seed; if false, it will generate the matrices randomly. \\
+\hline
+{\em regenerate} & A boolean flag that indicates whether to regenerate the matrices even if they already exist. If set to true, the function will always generate new matrices; if false, it will load the existing matrices if available. \\
+\hline
+{\em output\+\_\+file} & A pointer to a FILE object where any output or debug information can be written. This parameter is optional and can be used for logging purposes, but in this implementation, it is not used. \\
+\hline
+{\em h\+\_\+a\+\_\+seed} & A pointer to an unsigned char array where the generated seed for the parity check matrix H\+\_\+A will be stored if seed-\/based generation is used. The size of this array should be equal to SEED\+\_\+\+SIZE, which is defined in the constants header file. If seed-\/based generation is not used, this parameter can be NULL. \\
+\hline
+{\em g1\+\_\+seed} & A pointer to an unsigned char array where the generated seed for the first generator matrix G1 will be stored if seed-\/based generation is used. The size of this array should be equal to SEED\+\_\+\+SIZE, which is defined in the constants header file. If seed-\/based generation is not used, this parameter can be NULL. \\
+\hline
+{\em g2\+\_\+seed} & A pointer to an unsigned char array where the generated seed for the second generator matrix G2 will be stored if seed-\/based generation is used. The size of this array should be equal to SEED\+\_\+\+SIZE, which is defined in the constants header file. If seed-\/based generation is not used, this parameter can be NULL.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void This function does not return any value. It directly modifies the provided matrices (H\+\_\+A, G1, G2) and saves them to files if necessary. If seed-\/based generation is used, it also saves the generated seeds to files. 
+\end{DoxyReturn}
+\Hypertarget{keygen_8h_a9fd818f1cb7766e64fabb4002731329b}\index{keygen.h@{keygen.h}!generate\_parity\_check\_matrix\_from\_seed@{generate\_parity\_check\_matrix\_from\_seed}}
+\index{generate\_parity\_check\_matrix\_from\_seed@{generate\_parity\_check\_matrix\_from\_seed}!keygen.h@{keygen.h}}
+\doxysubsubsection{\texorpdfstring{generate\_parity\_check\_matrix\_from\_seed()}{generate\_parity\_check\_matrix\_from\_seed()}}
+{\footnotesize\ttfamily \label{keygen_8h_a9fd818f1cb7766e64fabb4002731329b} 
+void generate\+\_\+parity\+\_\+check\+\_\+matrix\+\_\+from\+\_\+seed (\begin{DoxyParamCaption}\item[{slong}]{n}{, }\item[{slong}]{k}{, }\item[{slong}]{d}{, }\item[{nmod\+\_\+mat\+\_\+t}]{H}{, }\item[{const unsigned char \texorpdfstring{$\ast$}{*}}]{seed}{, }\item[{FILE \texorpdfstring{$\ast$}{*}}]{output\+\_\+file}{}\end{DoxyParamCaption})}
+
+
+
+Generates a parity check matrix from a seed. 
+
+Generates a parity check matrix from a seed.
+
+The function initializes a parity check matrix of size (n-\/k) x n using a deterministic approach based on a provided seed. The seed is used to generate random entries in the matrix, ensuring that the same seed will always produce the same matrix. The entries are generated modulo MOD. The process involves the following steps\+:
+\begin{DoxyEnumerate}
+\item Stream Buffer Allocation\+: A buffer (stream) is allocated to hold the random bytes needed for the matrix entries. The size of this buffer is determined by the number of entries in the matrix ((n-\/k) \texorpdfstring{$\ast$}{*} n) multiplied by the size of each entry (4 bytes for a uint32\+\_\+t).
+\item Deterministic Random Generation\+: The randombytes\+\_\+buf\+\_\+deterministic function from the Sodium library is used to fill the buffer with random bytes based on the provided seed. This ensures that the same seed will always produce the same sequence of random bytes. It\textquotesingle{}s important to note that this function uses the Cha\+Cha20 algorithm under the hood for secure random number generation.
+\item Matrix Entry Population\+: The function iterates over each entry in the parity check matrix and fills it with values derived from the buffer. Each entry is constructed by combining 4 bytes from the buffer into a single uint32\+\_\+t value, which is then reduced modulo MOD to fit within the required range.
+\item Memory Cleanup\+: The allocated buffer is freed to avoid memory leaks.
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Note}
+The function does not return any value; it directly modifies the provided H object. It also requires a seed to ensure deterministic behavior, which is passed as an argument.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The total number of columns in the parity check matrix. It represents the length of the codewords that the matrix checks for validity. \\
+\hline
+{\em k} & The number of rows in the parity check matrix. It represents the dimension of the code, which is the number of information symbols that can be encoded. \\
+\hline
+{\em d} & The minimum distance of the code. This parameter is not directly used in the function but is typically relevant for the properties of the code being generated. \\
+\hline
+{\em H} & A pointer to an nmod\+\_\+mat\+\_\+t type, which represents the parity check matrix to be created. The function initializes this matrix with random entries modulo MOD. \\
+\hline
+{\em seed} & A pointer to an unsigned char array that serves as the seed for the deterministic random number generation. The size of this array should be equal to SEED\+\_\+\+SIZE, which is defined in the constants header file. \\
+\hline
+{\em output\+\_\+file} & A pointer to a FILE object where any output or debug information can be written.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void This function does not return any value. It modifies the provided H object directly and fills it with values derived from the seed. 
+\end{DoxyReturn}
+\Hypertarget{keygen_8h_a5e0b69ad3033a8fdc973789a0abd4b93}\index{keygen.h@{keygen.h}!get\_or\_generate\_matrix\_with\_seed@{get\_or\_generate\_matrix\_with\_seed}}
+\index{get\_or\_generate\_matrix\_with\_seed@{get\_or\_generate\_matrix\_with\_seed}!keygen.h@{keygen.h}}
+\doxysubsubsection{\texorpdfstring{get\_or\_generate\_matrix\_with\_seed()}{get\_or\_generate\_matrix\_with\_seed()}}
+{\footnotesize\ttfamily \label{keygen_8h_a5e0b69ad3033a8fdc973789a0abd4b93} 
+void get\+\_\+or\+\_\+generate\+\_\+matrix\+\_\+with\+\_\+seed (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{prefix}{, }\item[{int}]{n}{, }\item[{int}]{k}{, }\item[{int}]{d}{, }\item[{nmod\+\_\+mat\+\_\+t}]{matrix}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{generate\+\_\+func~}{)(slong, slong, slong, nmod\+\_\+mat\+\_\+t, FILE \texorpdfstring{$\ast$}{*}), }\item[{void(\texorpdfstring{$\ast$}{*}}]{generate\+\_\+from\+\_\+seed\+\_\+func~}{)(slong, slong, slong, nmod\+\_\+mat\+\_\+t, const unsigned char \texorpdfstring{$\ast$}{*}, FILE \texorpdfstring{$\ast$}{*}), }\item[{FILE \texorpdfstring{$\ast$}{*}}]{output\+\_\+file}{, }\item[{bool}]{regenerate}{, }\item[{bool}]{use\+\_\+seed\+\_\+mode}{, }\item[{unsigned char \texorpdfstring{$\ast$}{*}}]{seed\+\_\+out}{}\end{DoxyParamCaption})}
+
+
+
+Gets or generates matrix with seed. 
+
+Gets or generates matrix with seed.
+
+This function checks if a matrix file exists for the given parameters (prefix, n, k, d). If it does and regeneration is not requested, it loads the matrix from the file. If the file does not exist or regeneration is requested, it generates a new matrix either using a random generation function or a seed-\/based generation function. The generated matrix is then saved to a file. This function is designed to handle both random and seed-\/based generation of matrices, allowing for reproducibility when using the same seed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em prefix} & A string that serves as a prefix for the filename of the matrix. This prefix is used to create a unique filename based on the parameters n, k, and d. \\
+\hline
+{\em n} & The total number of columns in the matrix. It represents the length of the codewords generated by the matrix. \\
+\hline
+{\em k} & The number of rows in the matrix. It represents the dimension of the code, which is the number of information symbols that can be encoded. \\
+\hline
+{\em d} & The minimum distance of the code. This parameter is not directly used in the function but is typically relevant for the properties of the code being generated. \\
+\hline
+{\em matrix} & A pointer to an nmod\+\_\+mat\+\_\+t type, which represents the matrix to be generated or loaded. The function initializes this matrix with random entries or loads it from a file if it already exists. \\
+\hline
+{\em generate\+\_\+func} & A pointer to a function that generates a matrix with random entries. This function should take parameters (n, k, d, matrix, output\+\_\+file) and fill the matrix with random values. \\
+\hline
+{\em generate\+\_\+from\+\_\+seed\+\_\+func} & A pointer to a function that generates a matrix from a seed. This function should take parameters (n, k, d, matrix, seed, output\+\_\+file) and fill the matrix with values derived from the seed. \\
+\hline
+{\em output\+\_\+file} & A pointer to a FILE object where any output or debug information can be written. This parameter is optional and can be used for logging purposes, but in this implementation, it is not used. \\
+\hline
+{\em regenerate} & A boolean flag that indicates whether to regenerate the matrix even if it already exists. If set to true, the function will always generate a new matrix; if false, it will load the existing matrix if available. \\
+\hline
+{\em use\+\_\+seed\+\_\+mode} & A boolean flag that indicates whether to use seed-\/based generation for the matrix. If set to true, the function will generate the matrix using a seed; if false, it will generate the matrix randomly. \\
+\hline
+{\em seed\+\_\+out} & A pointer to an unsigned char array where the generated seed will be stored if seed-\/based generation is used. The size of this array should be equal to SEED\+\_\+\+SIZE, which is defined in the constants header file. If seed-\/based generation is not used, this parameter can be NULL.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void This function does not return any value. It modifies the provided matrix object directly and saves it to a file if necessary. 
+\end{DoxyReturn}

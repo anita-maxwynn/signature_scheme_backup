@@ -1,0 +1,298 @@
+\doxysection{signature-\/scheme/include/params.h File Reference}
+\hypertarget{params_8h}{}\label{params_8h}\index{signature-\/scheme/include/params.h@{signature-\/scheme/include/params.h}}
+
+
+Header file for declaration of parameter handling functions and \doxylink{structParams}{Params} structure.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}utils.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structParams}{Params}}
+\begin{DoxyCompactList}\small\item\em the derived datatype of the codes. it has the 3 parameters n, k, and d. n\+: length of the codeword, k\+: length of the message, d\+: minimum distance of the code. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{params_8h_a6f8ff4c3ca7e74da415f6b4ef9c8a1c0}{init\+\_\+params}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the libsodium library. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{params_8h_a762dabc452eb00e35ae0ae0a63489dec}{get\+\_\+yes\+\_\+no\+\_\+input}} (const char \texorpdfstring{$\ast$}{*}prompt)
+\begin{DoxyCompactList}\small\item\em Gets yes/no input from user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{params_8h_a4000e73bed1d5331e34887516aea3b5e}{get\+\_\+user\+\_\+input}} (\mbox{\hyperlink{structParams}{Params}} \texorpdfstring{$\ast$}{*}g1, \mbox{\hyperlink{structParams}{Params}} \texorpdfstring{$\ast$}{*}g2, \mbox{\hyperlink{structParams}{Params}} \texorpdfstring{$\ast$}{*}h)
+\begin{DoxyCompactList}\small\item\em Get user input for parameters. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{params_8h_a21fd0f1ecce3477f65d44f6448636ce1}{random\+\_\+range}} (uint32\+\_\+t min, uint32\+\_\+t max)
+\begin{DoxyCompactList}\small\item\em It generates a random number in the range \mbox{[}min, max\mbox{]}. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{params_8h_ae95ad42694d88562c68affd882ded1f1}{get\+\_\+\+H\+\_\+\+A\+\_\+n}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the n parameter of the concatenated code H\+\_\+A. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{params_8h_a1b3b9a55d09c8c72f3248237204e8828}{get\+\_\+\+H\+\_\+\+A\+\_\+k}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the k parameter of the concatenated code H\+\_\+A. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{params_8h_a8c3d9797b4f398697fc9b4d582e0a3f2}{get\+\_\+\+H\+\_\+\+A\+\_\+d}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the d parameter of the concatenated code H\+\_\+A. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{params_8h_a2a6835078950a2deec7b40eca0983778}{get\+\_\+\+G1\+\_\+n}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the n parameter of the generator matrix G1. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{params_8h_a2c3a17200d4cccfa5e8ea63a654e953c}{get\+\_\+\+G1\+\_\+k}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the k parameter of the generator matrix G1. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{params_8h_a6076ae37d671c60c7a0be47a2a0f90f0}{get\+\_\+\+G1\+\_\+d}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the d parameter of the generator matrix G1. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{params_8h_adeab264976d0174ad8d7a5f4baaeac41}{get\+\_\+\+G2\+\_\+n}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the n parameter of the generator matrix G2. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{params_8h_a9c72cbbed3284988951097b165be5044}{get\+\_\+\+G2\+\_\+k}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the k parameter of the generator matrix G2. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{params_8h_a42fcf740c66429c4b8d197f76e1a6246}{get\+\_\+\+G2\+\_\+d}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the d parameter of the generator matrix G2. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for declaration of parameter handling functions and \doxylink{structParams}{Params} structure. 
+
+Header file for declaration of parameter handling functions and \doxylink{structParams}{Params} structure. 
+
+\label{doc-func-members}
+\Hypertarget{params_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{params_8h_a6076ae37d671c60c7a0be47a2a0f90f0}\index{params.h@{params.h}!get\_G1\_d@{get\_G1\_d}}
+\index{get\_G1\_d@{get\_G1\_d}!params.h@{params.h}}
+\doxysubsubsection{\texorpdfstring{get\_G1\_d()}{get\_G1\_d()}}
+{\footnotesize\ttfamily \label{params_8h_a6076ae37d671c60c7a0be47a2a0f90f0} 
+uint32\+\_\+t get\+\_\+\+G1\+\_\+d (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Returns the d parameter of the generator matrix G1. 
+
+\begin{DoxyReturn}{Returns}
+The value of G1.\+d 
+\end{DoxyReturn}
+\Hypertarget{params_8h_a2c3a17200d4cccfa5e8ea63a654e953c}\index{params.h@{params.h}!get\_G1\_k@{get\_G1\_k}}
+\index{get\_G1\_k@{get\_G1\_k}!params.h@{params.h}}
+\doxysubsubsection{\texorpdfstring{get\_G1\_k()}{get\_G1\_k()}}
+{\footnotesize\ttfamily \label{params_8h_a2c3a17200d4cccfa5e8ea63a654e953c} 
+uint32\+\_\+t get\+\_\+\+G1\+\_\+k (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Returns the k parameter of the generator matrix G1. 
+
+\begin{DoxyReturn}{Returns}
+The value of G1.\+k 
+\end{DoxyReturn}
+\Hypertarget{params_8h_a2a6835078950a2deec7b40eca0983778}\index{params.h@{params.h}!get\_G1\_n@{get\_G1\_n}}
+\index{get\_G1\_n@{get\_G1\_n}!params.h@{params.h}}
+\doxysubsubsection{\texorpdfstring{get\_G1\_n()}{get\_G1\_n()}}
+{\footnotesize\ttfamily \label{params_8h_a2a6835078950a2deec7b40eca0983778} 
+uint32\+\_\+t get\+\_\+\+G1\+\_\+n (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Returns the n parameter of the generator matrix G1. 
+
+\begin{DoxyReturn}{Returns}
+The value of G1.\+n 
+\end{DoxyReturn}
+\Hypertarget{params_8h_a42fcf740c66429c4b8d197f76e1a6246}\index{params.h@{params.h}!get\_G2\_d@{get\_G2\_d}}
+\index{get\_G2\_d@{get\_G2\_d}!params.h@{params.h}}
+\doxysubsubsection{\texorpdfstring{get\_G2\_d()}{get\_G2\_d()}}
+{\footnotesize\ttfamily \label{params_8h_a42fcf740c66429c4b8d197f76e1a6246} 
+uint32\+\_\+t get\+\_\+\+G2\+\_\+d (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Returns the d parameter of the generator matrix G2. 
+
+\begin{DoxyReturn}{Returns}
+The value of G2.\+d 
+\end{DoxyReturn}
+\Hypertarget{params_8h_a9c72cbbed3284988951097b165be5044}\index{params.h@{params.h}!get\_G2\_k@{get\_G2\_k}}
+\index{get\_G2\_k@{get\_G2\_k}!params.h@{params.h}}
+\doxysubsubsection{\texorpdfstring{get\_G2\_k()}{get\_G2\_k()}}
+{\footnotesize\ttfamily \label{params_8h_a9c72cbbed3284988951097b165be5044} 
+uint32\+\_\+t get\+\_\+\+G2\+\_\+k (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Returns the k parameter of the generator matrix G2. 
+
+\begin{DoxyReturn}{Returns}
+The value of G2.\+k 
+\end{DoxyReturn}
+\Hypertarget{params_8h_adeab264976d0174ad8d7a5f4baaeac41}\index{params.h@{params.h}!get\_G2\_n@{get\_G2\_n}}
+\index{get\_G2\_n@{get\_G2\_n}!params.h@{params.h}}
+\doxysubsubsection{\texorpdfstring{get\_G2\_n()}{get\_G2\_n()}}
+{\footnotesize\ttfamily \label{params_8h_adeab264976d0174ad8d7a5f4baaeac41} 
+uint32\+\_\+t get\+\_\+\+G2\+\_\+n (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Returns the n parameter of the generator matrix G2. 
+
+\begin{DoxyReturn}{Returns}
+The value of G2.\+n 
+\end{DoxyReturn}
+\Hypertarget{params_8h_a8c3d9797b4f398697fc9b4d582e0a3f2}\index{params.h@{params.h}!get\_H\_A\_d@{get\_H\_A\_d}}
+\index{get\_H\_A\_d@{get\_H\_A\_d}!params.h@{params.h}}
+\doxysubsubsection{\texorpdfstring{get\_H\_A\_d()}{get\_H\_A\_d()}}
+{\footnotesize\ttfamily \label{params_8h_a8c3d9797b4f398697fc9b4d582e0a3f2} 
+uint32\+\_\+t get\+\_\+\+H\+\_\+\+A\+\_\+d (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Returns the d parameter of the concatenated code H\+\_\+A. 
+
+\begin{DoxyReturn}{Returns}
+The value of H\+\_\+\+A.\+d 
+\end{DoxyReturn}
+\Hypertarget{params_8h_a1b3b9a55d09c8c72f3248237204e8828}\index{params.h@{params.h}!get\_H\_A\_k@{get\_H\_A\_k}}
+\index{get\_H\_A\_k@{get\_H\_A\_k}!params.h@{params.h}}
+\doxysubsubsection{\texorpdfstring{get\_H\_A\_k()}{get\_H\_A\_k()}}
+{\footnotesize\ttfamily \label{params_8h_a1b3b9a55d09c8c72f3248237204e8828} 
+uint32\+\_\+t get\+\_\+\+H\+\_\+\+A\+\_\+k (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Returns the k parameter of the concatenated code H\+\_\+A. 
+
+\begin{DoxyReturn}{Returns}
+The value of H\+\_\+\+A.\+k 
+\end{DoxyReturn}
+\Hypertarget{params_8h_ae95ad42694d88562c68affd882ded1f1}\index{params.h@{params.h}!get\_H\_A\_n@{get\_H\_A\_n}}
+\index{get\_H\_A\_n@{get\_H\_A\_n}!params.h@{params.h}}
+\doxysubsubsection{\texorpdfstring{get\_H\_A\_n()}{get\_H\_A\_n()}}
+{\footnotesize\ttfamily \label{params_8h_ae95ad42694d88562c68affd882ded1f1} 
+uint32\+\_\+t get\+\_\+\+H\+\_\+\+A\+\_\+n (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Returns the n parameter of the concatenated code H\+\_\+A. 
+
+\begin{DoxyReturn}{Returns}
+The value of H\+\_\+\+A.\+n 
+\end{DoxyReturn}
+\Hypertarget{params_8h_a4000e73bed1d5331e34887516aea3b5e}\index{params.h@{params.h}!get\_user\_input@{get\_user\_input}}
+\index{get\_user\_input@{get\_user\_input}!params.h@{params.h}}
+\doxysubsubsection{\texorpdfstring{get\_user\_input()}{get\_user\_input()}}
+{\footnotesize\ttfamily \label{params_8h_a4000e73bed1d5331e34887516aea3b5e} 
+void get\+\_\+user\+\_\+input (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structParams}{Params}} \texorpdfstring{$\ast$}{*}}]{g1}{, }\item[{\mbox{\hyperlink{structParams}{Params}} \texorpdfstring{$\ast$}{*}}]{g2}{, }\item[{\mbox{\hyperlink{structParams}{Params}} \texorpdfstring{$\ast$}{*}}]{h}{}\end{DoxyParamCaption})}
+
+
+
+Get user input for parameters. 
+
+This function checks if a saved parameter file exists and prompts the user to use it. If not, it asks the user whether they want to use BCH code or input G1 and G2 parameters manually. It generates random parameters if the user chooses not to input them. The function also saves the parameters to a file for future use. At first it checks if a saved parameter file exists. If it does, it prompts the user to use it. If the user chooses not to use the saved parameters, it asks whether they want to use BCH code or input G1 and G2 parameters manually.
+
+• For the BCH code, it calculates the parameters based on user input for m and t, ensuring that the derived values for n, k, and d are consistent across G1 and G2. The parameters for H\+\_\+A are derived from G1 and G2. m is the degree of the BCH code, and t is the error-\/correcting capability. The parameters are calculated as follows\+: • -\/ n = 2\texorpdfstring{$^\wedge$}{\string^}m -\/ 1 (length of the codeword) • -\/ k = m \texorpdfstring{$\ast$}{*} t (length of the message) • -\/ d = 2 \texorpdfstring{$\ast$}{*} t + 1 (minimum distance of the code) • If the user chooses to input G1 and G2 parameters manually, it prompts for each parameter (n, k, d) and checks their validity. If the user does not want to input parameters, it generates random parameters for G1 and G2.
+
+After gathering the parameters, it saves them to a file named Defined as PARAM\+\_\+\+PATH for future use. The parameters for G1, G2, and H\+\_\+A are printed to the console for confirmation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em g1} & Pointer to \doxylink{structParams}{Params} structure for G1 parameters. \\
+\hline
+{\em g2} & Pointer to \doxylink{structParams}{Params} structure for G2 parameters. \\
+\hline
+{\em h} & Pointer to \doxylink{structParams}{Params} structure for H\+\_\+A parameters.\\
+\hline
+\end{DoxyParams}
+This function checks if a saved parameter file exists and prompts the user to use it. If not, it asks the user whether they want to use BCH code or input G1 and G2 parameters manually. It generates random parameters if the user chooses not to input them. The function also saves the parameters to a file for future use. At first it checks if a saved parameter file exists. If it does, it prompts the user to use it. If the user chooses not to use the saved parameters, it asks whether they want to use BCH code or input G1 and G2 parameters manually.
+\begin{DoxyItemize}
+\item For the BCH code, it calculates the parameters based on user input for {\ttfamily m} and {\ttfamily t}, ensuring that the derived values for {\ttfamily n}, {\ttfamily k}, and {\ttfamily d} are consistent across G1 and G2. The parameters for H\+\_\+A are derived from G1 and G2. {\ttfamily m} is the degree of the BCH code, and {\ttfamily t} is the error-\/correcting capability. The parameters are calculated as follows\+:
+\item -\/ n = 2\texorpdfstring{$^\wedge$}{\string^}m -\/ 1 (length of the codeword)
+\item -\/ k = m \texorpdfstring{$\ast$}{*} t (length of the message)
+\item -\/ d = 2 \texorpdfstring{$\ast$}{*} t + 1 (minimum distance of the code)
+\item If the user chooses to input G1 and G2 parameters manually, it prompts for each parameter (n, k, d) and checks their validity. If the user does not want to input parameters, it generates random parameters for G1 and G2.
+\end{DoxyItemize}
+
+After gathering the parameters, it saves them to a file named Defined as PARAM\+\_\+\+PATH for future use. The parameters for G1, G2, and H\+\_\+A are printed to the console for confirmation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em g1} & Pointer to \doxylink{structParams}{Params} structure for G1 parameters. \\
+\hline
+{\em g2} & Pointer to \doxylink{structParams}{Params} structure for G2 parameters. \\
+\hline
+{\em h} & Pointer to \doxylink{structParams}{Params} structure for H\+\_\+A parameters. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{params_8h_a762dabc452eb00e35ae0ae0a63489dec}\index{params.h@{params.h}!get\_yes\_no\_input@{get\_yes\_no\_input}}
+\index{get\_yes\_no\_input@{get\_yes\_no\_input}!params.h@{params.h}}
+\doxysubsubsection{\texorpdfstring{get\_yes\_no\_input()}{get\_yes\_no\_input()}}
+{\footnotesize\ttfamily \label{params_8h_a762dabc452eb00e35ae0ae0a63489dec} 
+bool get\+\_\+yes\+\_\+no\+\_\+input (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{prompt}{}\end{DoxyParamCaption})}
+
+
+
+Gets yes/no input from user. 
+
+Gets yes/no input from user.
+
+
+\begin{DoxyParams}{Parameters}
+{\em prompt} & It is a string that will be displayed to the user as a prompt.\\
+\hline
+\end{DoxyParams}
+This function prompts the user for a yes or no response. It reads the user\textquotesingle{}s input and checks for the 1st character of it. It returns true for \textquotesingle{}y\textquotesingle{} or \textquotesingle{}Y\textquotesingle{}, and false for \textquotesingle{}n\textquotesingle{} or \textquotesingle{}N\textquotesingle{}. If the input is invalid, it will terminate the program with failure. \begin{DoxyReturn}{Returns}
+true if the input\textquotesingle{}s 1st character is \textquotesingle{}y\textquotesingle{} or \textquotesingle{}Y\textquotesingle{}. 
+
+false if the input\textquotesingle{}s 1st character is \textquotesingle{}n\textquotesingle{} or \textquotesingle{}N\textquotesingle{}. 
+\end{DoxyReturn}
+\Hypertarget{params_8h_a6f8ff4c3ca7e74da415f6b4ef9c8a1c0}\index{params.h@{params.h}!init\_params@{init\_params}}
+\index{init\_params@{init\_params}!params.h@{params.h}}
+\doxysubsubsection{\texorpdfstring{init\_params()}{init\_params()}}
+{\footnotesize\ttfamily \label{params_8h_a6f8ff4c3ca7e74da415f6b4ef9c8a1c0} 
+void init\+\_\+params (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the libsodium library. 
+
+This function should be called before using any other libsodium functions. The libsodium library is used for generating random numbers in this implementation. \begin{DoxyNote}{Note}
+If libsodium fails to initialize, the program will exit with an error message. 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+sodium\+\_\+init 
+\end{DoxySeeAlso}
+\Hypertarget{params_8h_a21fd0f1ecce3477f65d44f6448636ce1}\index{params.h@{params.h}!random\_range@{random\_range}}
+\index{random\_range@{random\_range}!params.h@{params.h}}
+\doxysubsubsection{\texorpdfstring{random\_range()}{random\_range()}}
+{\footnotesize\ttfamily \label{params_8h_a21fd0f1ecce3477f65d44f6448636ce1} 
+uint32\+\_\+t random\+\_\+range (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{min}{, }\item[{uint32\+\_\+t}]{max}{}\end{DoxyParamCaption})}
+
+
+
+It generates a random number in the range \mbox{[}min, max\mbox{]}. 
+
+This function uses the libsodium library to generate a uniform random unsigned 32bit number. Basically, it generates a random number in the range \mbox{[}0, max-\/min\mbox{]} and adds with min.
+
+
+\begin{DoxyParams}{Parameters}
+{\em min} & The minimum value of the range (inclusive). \\
+\hline
+{\em max} & The maximum value of the range (inclusive).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t The generated random number.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function assumes that max is greater than or equal to min.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+randombytes\+\_\+uniform
+\end{DoxySeeAlso}
+This function uses the libsodium library to generate a uniform random unsigned 32bit number. Basically, it generates a random number in the range \mbox{[}0, max-\/min\mbox{]} and adds with min. 
+\begin{DoxyParams}{Parameters}
+{\em min} & The minimum value of the range (inclusive). \\
+\hline
+{\em max} & The maximum value of the range (inclusive). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t The generated random number. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function assumes that {\ttfamily max} is greater than or equal to {\ttfamily min}. 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+randombytes\+\_\+uniform 
+\end{DoxySeeAlso}

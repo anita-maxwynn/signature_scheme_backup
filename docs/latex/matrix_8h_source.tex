@@ -1,0 +1,31 @@
+\doxysection{matrix.\+h}
+\hypertarget{matrix_8h_source}{}\label{matrix_8h_source}\index{signature-\/scheme/include/matrix.h@{signature-\/scheme/include/matrix.h}}
+\mbox{\hyperlink{matrix_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ MATRIX\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ MATRIX\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <flint/nmod\_mat.h>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcode}{code}}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{structcode_a6e95446be6163bff48de4ae3456b77ea}{n}};\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{structcode_a32c61802b0b46b65ada161bcdcb54884}{k}};\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{structcode_a768286b79c529c0f376f8914f3c85ad2}{d}};\ }
+\DoxyCodeLine{00021\ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{matrix_8h_aac32546c5107ae59188824ab1e6520d2}{print\_matrix}}(FILE\ *fp,\ nmod\_mat\_t\ matrix);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{matrix_8h_ab077edda24692d5e752666a914d56d80}{transpose\_matrix}}(\textcolor{keywordtype}{int}\ rows,\ \textcolor{keywordtype}{int}\ cols,\ \textcolor{keywordtype}{int}\ matrix[rows][cols],\ \textcolor{keywordtype}{int}\ transpose[cols][rows]);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{matrix_8h_a743c01002fbe11bc22fb98be6f7488bd}{multiply\_matrices\_gf2}}(nmod\_mat\_t\ C,\ \textcolor{keyword}{const}\ nmod\_mat\_t\ A,\ \textcolor{keyword}{const}\ nmod\_mat\_t\ B);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{matrix_8h_a0bc0da924b4ebb01da72a57ea4a91dbc}{make\_systematic}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ n,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ k,\ nmod\_mat\_t\ H);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{matrix_8h_abc101d9b1808a35b513e6bf1afbbeaea}{rref}}(\textcolor{keywordtype}{int}\ num\_rows,\ \textcolor{keywordtype}{int}\ num\_cols,\ \textcolor{keywordtype}{int}\ (*H)[num\_cols]);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ MATRIX\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

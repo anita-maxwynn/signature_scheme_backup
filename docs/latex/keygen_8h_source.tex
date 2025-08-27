@@ -1,0 +1,35 @@
+\doxysection{keygen.\+h}
+\hypertarget{keygen_8h_source}{}\label{keygen_8h_source}\index{signature-\/scheme/include/keygen.h@{signature-\/scheme/include/keygen.h}}
+\mbox{\hyperlink{keygen_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ KEYGEN\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ KEYGEN\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <flint/nmod\_mat.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{matrix_8h}{matrix.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00016\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{keygen_8h_a204bf37acc3588b6f477c4a596696196}{create\_generator\_matrix\_from\_seed}}(slong\ n,\ slong\ k,\ slong\ d,}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nmod\_mat\_t\ gen\_matrix,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *seed,}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FILE\ *output\_file);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{keygen_8h_a9fd818f1cb7766e64fabb4002731329b}{generate\_parity\_check\_matrix\_from\_seed}}(slong\ n,\ slong\ k,\ slong\ d,\ nmod\_mat\_t\ H,\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *seed,\ FILE\ *output\_file);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{keygen_8h_a5e0b69ad3033a8fdc973789a0abd4b93}{get\_or\_generate\_matrix\_with\_seed}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ prefix,\ \textcolor{keywordtype}{int}\ n,\ \textcolor{keywordtype}{int}\ k,\ \textcolor{keywordtype}{int}\ d,\ nmod\_mat\_t\ matrix,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ (*generate\_func)(slong,\ slong,\ slong,\ nmod\_mat\_t,\ FILE*),}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ (*generate\_from\_seed\_func)(slong,\ slong,\ slong,\ nmod\_mat\_t,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*,\ FILE*),}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FILE*\ output\_file,\ \textcolor{keywordtype}{bool}\ regenerate,\ \textcolor{keywordtype}{bool}\ use\_seed\_mode,\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *seed\_out);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{keygen_8h_a234de192b3dd4ce89cc8dca7cdf93003}{generate\_keys}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structcode}{code}}*\ C\_A,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structcode}{code}}*\ C1,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structcode}{code}}*\ C2,}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nmod\_mat\_t\ \mbox{\hyperlink{params_8c_abb953f253a118190024fe5adb406bfcf}{H\_A}},\ nmod\_mat\_t\ \mbox{\hyperlink{params_8c_af7e08370dd89aa3e493f9c9a0381af3a}{G1}},\ nmod\_mat\_t\ \mbox{\hyperlink{params_8c_ac48fb7806f2805c3e2ac08237863ee4b}{G2}},}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ use\_seed\_mode,\ \textcolor{keywordtype}{bool}\ regenerate,\ FILE*\ output\_file,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ h\_a\_seed,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ g1\_seed,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ g2\_seed);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

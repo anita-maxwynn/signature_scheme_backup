@@ -1,0 +1,117 @@
+\doxysection{signature-\/scheme/include/constants.h File Reference}
+\hypertarget{constants_8h}{}\label{constants_8h}\index{signature-\/scheme/include/constants.h@{signature-\/scheme/include/constants.h}}
+
+
+It is the header file for the constants and flags used in the signature scheme.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{constants_8h_aca7d5718ab8c38506adb3bef2469b319}{MOD}}~2
+\begin{DoxyCompactList}\small\item\em It is the modulus used in the signature scheme. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{constants_8h_a8b43bafee90b30676faae508c21cb8d7}{PRINT}}~true
+\begin{DoxyCompactList}\small\item\em It is the flag to print the matrices and other information during the execution. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{constants_8h_ae644779154eb97135768f1d42506cc2e}{SEED\+\_\+\+SIZE}}~32
+\begin{DoxyCompactList}\small\item\em It is the size of the seed used for random number generation in the signature scheme. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{constants_8h_ae4359d7ac4734df71d427b683d32b9e3}{PARAM\+\_\+\+PATH}}~"{}params.\+txt"{}
+\begin{DoxyCompactList}\small\item\em It is the path to the parameters file. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{constants_8h_add836a505b86b88ac52e48d6bece5738}{OUTPUT\+\_\+\+DIR}}~"{}output"{}
+\begin{DoxyCompactList}\small\item\em It is the directory to the output file. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{constants_8h_a8bc8c4afa65d2ec177cfe75981090437}{OUTPUT\+\_\+\+PATH}}~\mbox{\hyperlink{constants_8h_add836a505b86b88ac52e48d6bece5738}{OUTPUT\+\_\+\+DIR}} "{}/output.\+txt"{}
+\begin{DoxyCompactList}\small\item\em It is the path to the output file. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{constants_8h_aabb33a869773f951055e41b1cf6527ec}{CACHE\+\_\+\+DIR}}~"{}./matrix\+\_\+cache/"{}
+\begin{DoxyCompactList}\small\item\em It is the directory where the matrix cache is stored. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{constants_8h_a6773b93f3093658c3dcb569de3b4bdb2}{MAX\+\_\+\+FILENAME\+\_\+\+LENGTH}}~256
+\begin{DoxyCompactList}\small\item\em It is the maximum length of a filename in the signature scheme. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+It is the header file for the constants and flags used in the signature scheme. 
+
+
+
+\label{doc-define-members}
+\Hypertarget{constants_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{constants_8h_aabb33a869773f951055e41b1cf6527ec}\index{constants.h@{constants.h}!CACHE\_DIR@{CACHE\_DIR}}
+\index{CACHE\_DIR@{CACHE\_DIR}!constants.h@{constants.h}}
+\doxysubsubsection{\texorpdfstring{CACHE\_DIR}{CACHE\_DIR}}
+{\footnotesize\ttfamily \label{constants_8h_aabb33a869773f951055e41b1cf6527ec} 
+\#define CACHE\+\_\+\+DIR~"{}./matrix\+\_\+cache/"{}}
+
+
+
+It is the directory where the matrix cache is stored. 
+
+This directory is used to store cached matrices used in the signature scheme. It is useful for storing matrices that are frequently used or generated, allowing for faster access and reducing the need to regenerate them each time the program runs. The cached matrices are in binary format and can be loaded or saved as needed. \Hypertarget{constants_8h_a6773b93f3093658c3dcb569de3b4bdb2}\index{constants.h@{constants.h}!MAX\_FILENAME\_LENGTH@{MAX\_FILENAME\_LENGTH}}
+\index{MAX\_FILENAME\_LENGTH@{MAX\_FILENAME\_LENGTH}!constants.h@{constants.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_FILENAME\_LENGTH}{MAX\_FILENAME\_LENGTH}}
+{\footnotesize\ttfamily \label{constants_8h_a6773b93f3093658c3dcb569de3b4bdb2} 
+\#define MAX\+\_\+\+FILENAME\+\_\+\+LENGTH~256}
+
+
+
+It is the maximum length of a filename in the signature scheme. 
+
+\Hypertarget{constants_8h_aca7d5718ab8c38506adb3bef2469b319}\index{constants.h@{constants.h}!MOD@{MOD}}
+\index{MOD@{MOD}!constants.h@{constants.h}}
+\doxysubsubsection{\texorpdfstring{MOD}{MOD}}
+{\footnotesize\ttfamily \label{constants_8h_aca7d5718ab8c38506adb3bef2469b319} 
+\#define MOD~2}
+
+
+
+It is the modulus used in the signature scheme. 
+
+\Hypertarget{constants_8h_add836a505b86b88ac52e48d6bece5738}\index{constants.h@{constants.h}!OUTPUT\_DIR@{OUTPUT\_DIR}}
+\index{OUTPUT\_DIR@{OUTPUT\_DIR}!constants.h@{constants.h}}
+\doxysubsubsection{\texorpdfstring{OUTPUT\_DIR}{OUTPUT\_DIR}}
+{\footnotesize\ttfamily \label{constants_8h_add836a505b86b88ac52e48d6bece5738} 
+\#define OUTPUT\+\_\+\+DIR~"{}output"{}}
+
+
+
+It is the directory to the output file. 
+
+\Hypertarget{constants_8h_a8bc8c4afa65d2ec177cfe75981090437}\index{constants.h@{constants.h}!OUTPUT\_PATH@{OUTPUT\_PATH}}
+\index{OUTPUT\_PATH@{OUTPUT\_PATH}!constants.h@{constants.h}}
+\doxysubsubsection{\texorpdfstring{OUTPUT\_PATH}{OUTPUT\_PATH}}
+{\footnotesize\ttfamily \label{constants_8h_a8bc8c4afa65d2ec177cfe75981090437} 
+\#define OUTPUT\+\_\+\+PATH~\mbox{\hyperlink{constants_8h_add836a505b86b88ac52e48d6bece5738}{OUTPUT\+\_\+\+DIR}} "{}/output.\+txt"{}}
+
+
+
+It is the path to the output file. 
+
+This file is used to store the output of the signature scheme, such as the generated signatures, debug information, and other relevant data. \Hypertarget{constants_8h_ae4359d7ac4734df71d427b683d32b9e3}\index{constants.h@{constants.h}!PARAM\_PATH@{PARAM\_PATH}}
+\index{PARAM\_PATH@{PARAM\_PATH}!constants.h@{constants.h}}
+\doxysubsubsection{\texorpdfstring{PARAM\_PATH}{PARAM\_PATH}}
+{\footnotesize\ttfamily \label{constants_8h_ae4359d7ac4734df71d427b683d32b9e3} 
+\#define PARAM\+\_\+\+PATH~"{}params.\+txt"{}}
+
+
+
+It is the path to the parameters file. 
+
+This file contains the parameters for the signature scheme, such as the generator matrices and concatenated codes. The parameters are used to initialize the signature scheme and can be generated or read from this file. \Hypertarget{constants_8h_a8b43bafee90b30676faae508c21cb8d7}\index{constants.h@{constants.h}!PRINT@{PRINT}}
+\index{PRINT@{PRINT}!constants.h@{constants.h}}
+\doxysubsubsection{\texorpdfstring{PRINT}{PRINT}}
+{\footnotesize\ttfamily \label{constants_8h_a8b43bafee90b30676faae508c21cb8d7} 
+\#define PRINT~true}
+
+
+
+It is the flag to print the matrices and other information during the execution. 
+
+If set to true, the program will print debug information to the output file. If set to false, the program will not print debug information. This can be useful for debugging purposes or to reduce the output size in production runs. \Hypertarget{constants_8h_ae644779154eb97135768f1d42506cc2e}\index{constants.h@{constants.h}!SEED\_SIZE@{SEED\_SIZE}}
+\index{SEED\_SIZE@{SEED\_SIZE}!constants.h@{constants.h}}
+\doxysubsubsection{\texorpdfstring{SEED\_SIZE}{SEED\_SIZE}}
+{\footnotesize\ttfamily \label{constants_8h_ae644779154eb97135768f1d42506cc2e} 
+\#define SEED\+\_\+\+SIZE~32}
+
+
+
+It is the size of the seed used for random number generation in the signature scheme. 
+

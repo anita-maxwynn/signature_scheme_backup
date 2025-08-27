@@ -1,0 +1,469 @@
+\doxysection{signature-\/scheme/include/utils.h File Reference}
+\hypertarget{utils_8h}{}\label{utils_8h}\index{signature-\/scheme/include/utils.h@{signature-\/scheme/include/utils.h}}
+
+
+Header file for utility functions used in the signature scheme.  
+
+
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$sodium.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$flint/flint.\+h$>$}\newline
+{\ttfamily \#include $<$flint/nmod\+\_\+mat.\+h$>$}\newline
+{\ttfamily \#include "{}matrix.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+long \mbox{\hyperlink{utils_8h_a0abfd8660e4c30a446271184dc904c96}{weight}} (nmod\+\_\+mat\+\_\+t array)
+\begin{DoxyCompactList}\small\item\em Calculates the Hamming weight of a matrix row. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{utils_8h_a0a93e918b73ae9b05ef7036480bde696}{binary\+\_\+entropy}} (double p)
+\begin{DoxyCompactList}\small\item\em Calculates the binary entropy of a probability. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8h_abe5cbdd0620603e270684a5f978dc6c2}{generate\+\_\+random\+\_\+set}} (unsigned long upper\+\_\+bound, unsigned long size, unsigned long set\mbox{[}size\mbox{]})
+\begin{DoxyCompactList}\small\item\em Generates a random set of unique integers within a specified range. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{utils_8h_a1477b3bbfb233073dd258440041ad129}{generate\+\_\+matrix\+\_\+filename}} (const char \texorpdfstring{$\ast$}{*}prefix, int n, int k, int d)
+\begin{DoxyCompactList}\small\item\em Generates a filename for a matrix based on prefix and dimensions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8h_ab6d5b54e91321609a751e995f91e457b}{save\+\_\+matrix}} (const char \texorpdfstring{$\ast$}{*}filename, const nmod\+\_\+mat\+\_\+t matrix)
+\begin{DoxyCompactList}\small\item\em Saves a matrix to a text file in FLINT format. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utils_8h_aefef1fc8ea5469aff22fce16404f82d4}{load\+\_\+matrix}} (const char \texorpdfstring{$\ast$}{*}filename, nmod\+\_\+mat\+\_\+t matrix)
+\begin{DoxyCompactList}\small\item\em Loads a matrix from a text file in FLINT format. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utils_8h_a465f5441ca7fc78824e4e834b46a747f}{file\+\_\+exists}} (const char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em Checks if a file exists. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{utils_8h_aee6a52e0a51200073ab9001de380536c}{generate\+\_\+seed\+\_\+filename}} (const char \texorpdfstring{$\ast$}{*}prefix, int n, int k, int d)
+\begin{DoxyCompactList}\small\item\em Generates a filename for a seed based on prefix and parameters. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{utils_8h_a277abfab9e3f799e1d38a673474eea75}{save\+\_\+seed}} (const char \texorpdfstring{$\ast$}{*}filename, const unsigned char \texorpdfstring{$\ast$}{*}seed)
+\begin{DoxyCompactList}\small\item\em Saves a seed to a binary file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{utils_8h_a2c0016f5618e2882d9261251b7fada82}{load\+\_\+seed}} (const char \texorpdfstring{$\ast$}{*}filename, unsigned char \texorpdfstring{$\ast$}{*}seed)
+\begin{DoxyCompactList}\small\item\em Loads a seed from a binary file. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{utils_8h_ab5e8b6289c8d0f065872cbe531443692}{read\+\_\+file}} (const char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em Reads the contents of a file into a string. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{utils_8h_ae7369b1b9abc62b85ee1e13cf4db0566}{read\+\_\+file\+\_\+or\+\_\+generate}} (const char \texorpdfstring{$\ast$}{*}filename, int msg\+\_\+len)
+\begin{DoxyCompactList}\small\item\em Reads a message from file or generates random message. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{utils_8h_a9b8caa6ee7537617613701fce02b972c}{load\+\_\+params}} (struct \mbox{\hyperlink{structcode}{code}} \texorpdfstring{$\ast$}{*}C\+\_\+A, struct \mbox{\hyperlink{structcode}{code}} \texorpdfstring{$\ast$}{*}C1, struct \mbox{\hyperlink{structcode}{code}} \texorpdfstring{$\ast$}{*}C2)
+\begin{DoxyCompactList}\small\item\em Loads parameters for codes from a file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8h_a086645594d782274944ebe259a8f748d}{ensure\+\_\+matrix\+\_\+cache}} ()
+\begin{DoxyCompactList}\small\item\em Ensures matrix cache directory exists. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8h_aca16e242c76b24e74eddb68763efdead}{ensure\+\_\+output\+\_\+directory}} ()
+\begin{DoxyCompactList}\small\item\em Ensures output directory exists. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{utils_8h_adc1e64667d966146e31b71ac4476d009}{normalize\+\_\+message\+\_\+length}} (const char \texorpdfstring{$\ast$}{*}msg, size\+\_\+t msg\+\_\+len, size\+\_\+t target\+\_\+len, size\+\_\+t \texorpdfstring{$\ast$}{*}final\+\_\+len\+\_\+out)
+\begin{DoxyCompactList}\small\item\em Normalizes message length by padding or truncating. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for utility functions used in the signature scheme. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{utils_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{utils_8h_a0a93e918b73ae9b05ef7036480bde696}\index{utils.h@{utils.h}!binary\_entropy@{binary\_entropy}}
+\index{binary\_entropy@{binary\_entropy}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{binary\_entropy()}{binary\_entropy()}}
+{\footnotesize\ttfamily \label{utils_8h_a0a93e918b73ae9b05ef7036480bde696} 
+double binary\+\_\+entropy (\begin{DoxyParamCaption}\item[{double}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Calculates the binary entropy of a probability. 
+
+Calculates the binary entropy of a probability.
+
+The binary entropy function computes the entropy of a binary random variable with probability p of being 1. It uses the formula\+: H(p) = -\/p \texorpdfstring{$\ast$}{*} log2(p) -\/ (1 -\/ p) \texorpdfstring{$\ast$}{*} log2(1 -\/ p). The function checks if p is within the valid range (0, 1) and returns 0 if p is 0 or 1, as there is no uncertainty in those cases. The logarithm is computed using the log2 function from the math library, which calculates the base-\/2 logarithm.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & A double representing the probability of a binary event occurring, where 0 \texorpdfstring{$<$}{<} p \texorpdfstring{$<$}{<} 1.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double The binary entropy of the given probability p, which is a measure of uncertainty in bits.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The function assumes that the input probability p is a valid value between 0 and 1 (exclusive). If p is outside this range, the function will return 0, indicating no uncertainty. It does not handle cases where p is NaN or infinite. 
+\end{DoxyNote}
+\Hypertarget{utils_8h_a086645594d782274944ebe259a8f748d}\index{utils.h@{utils.h}!ensure\_matrix\_cache@{ensure\_matrix\_cache}}
+\index{ensure\_matrix\_cache@{ensure\_matrix\_cache}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{ensure\_matrix\_cache()}{ensure\_matrix\_cache()}}
+{\footnotesize\ttfamily \label{utils_8h_a086645594d782274944ebe259a8f748d} 
+void ensure\+\_\+matrix\+\_\+cache (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Ensures matrix cache directory exists. 
+
+Ensures matrix cache directory exists.
+
+This function checks if the directory "{}matrix\+\_\+cache"{} exists. If it does not, it creates the directory with permissions set to 0700 (read, write, and execute permissions for the owner only). This is useful for storing cached matrices used in the signature scheme. It uses the stat function to check for the directory\textquotesingle{}s existence and mkdir to create it if necessary. The function does not return any value; it simply ensures that the directory is present before any matrix operations are performed.
+
+\begin{DoxyReturn}{Returns}
+It does not return any value; it simply ensures that the matrix cache directory is present before any matrix operations are performed. 
+\end{DoxyReturn}
+\Hypertarget{utils_8h_aca16e242c76b24e74eddb68763efdead}\index{utils.h@{utils.h}!ensure\_output\_directory@{ensure\_output\_directory}}
+\index{ensure\_output\_directory@{ensure\_output\_directory}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{ensure\_output\_directory()}{ensure\_output\_directory()}}
+{\footnotesize\ttfamily \label{utils_8h_aca16e242c76b24e74eddb68763efdead} 
+void ensure\+\_\+output\+\_\+directory (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Ensures output directory exists. 
+
+Ensures output directory exists.
+
+This function checks if the directory "{}output"{} exists. If it does not, it creates the directory with permissions set to 0700 (read, write, and execute permissions for the owner only). This is useful for storing output files generated by the signature scheme. It uses the stat function to check for the directory\textquotesingle{}s existence and mkdir to create it if necessary. The function does not return any value; it simply ensures that the output directory is present before any output operations are performed.
+
+\begin{DoxyReturn}{Returns}
+It does not return any value; it simply ensures that the output directory is present before any output operations are performed. 
+\end{DoxyReturn}
+\Hypertarget{utils_8h_a465f5441ca7fc78824e4e834b46a747f}\index{utils.h@{utils.h}!file\_exists@{file\_exists}}
+\index{file\_exists@{file\_exists}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{file\_exists()}{file\_exists()}}
+{\footnotesize\ttfamily \label{utils_8h_a465f5441ca7fc78824e4e834b46a747f} 
+int file\+\_\+exists (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Checks if a file exists. 
+
+Checks if a file exists.
+
+It takes a filename as input and tries to open the file using fopen with the "{}r"{} mode, which is for reading. If the file cannot be opened (for example, if it does not exist), fopen returns NULL. In this case, the function returns 0 to indicate that the file does not exist. If the file is successfully opened, it is immediately closed using fclose, and the function returns 1 to indicate that the file exists.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & A pointer to a constant character string that specifies the name of the file to check for existence. The function will attempt to open this file in read mode.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if the file exists (i.\+e., it can be opened in read mode), or 0 if the file does not exist (i.\+e., it cannot be opened).
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The function does not perform any additional checks on the file, such as verifying its contents or permissions. It simply checks for the existence of the file by trying to open it. If the file is successfully opened, it is closed immediately after checking. 
+\end{DoxyNote}
+\Hypertarget{utils_8h_a1477b3bbfb233073dd258440041ad129}\index{utils.h@{utils.h}!generate\_matrix\_filename@{generate\_matrix\_filename}}
+\index{generate\_matrix\_filename@{generate\_matrix\_filename}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{generate\_matrix\_filename()}{generate\_matrix\_filename()}}
+{\footnotesize\ttfamily \label{utils_8h_a1477b3bbfb233073dd258440041ad129} 
+char \texorpdfstring{$\ast$}{*} generate\+\_\+matrix\+\_\+filename (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{prefix}{, }\item[{int}]{n}{, }\item[{int}]{k}{, }\item[{int}]{d}{}\end{DoxyParamCaption})}
+
+
+
+Generates a filename for a matrix based on prefix and dimensions. 
+
+Generates a filename for a matrix based on prefix and dimensions.
+
+The function constructs a filename for a matrix by concatenating a predefined cache directory with a prefix and the dimensions of the matrix (n, k, d). The resulting filename is formatted as "{}cache\+\_\+dir/prefix\+\_\+n\+\_\+k\+\_\+d.\+txt"{}, where cache\+\_\+dir is defined as "{}matrix\+\_\+cache/"{}, and prefix, n, k, and d are provided as parameters. The function allocates memory for the filename string, formats it using sprintf, and returns the pointer to the generated filename.
+
+
+\begin{DoxyParams}{Parameters}
+{\em prefix} & A pointer to a constant character string that serves as a prefix for the filename. This prefix is typically used to identify the type of matrix or its specific characteristics. Example prefixes could be "{}\+H\+\_\+\+A"{}, "{}\+G1"{}, or "{}\+G2"{}, depending on the context of the matrix being generated or stored. \\
+\hline
+{\em n} & The length of the code. \\
+\hline
+{\em k} & The dimension of the code. \\
+\hline
+{\em d} & The minimum distance of the code.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char\texorpdfstring{$\ast$}{*} A pointer to a dynamically allocated string containing the generated filename. If memory allocation fails, it returns NULL.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The function allocates memory for the filename string, so it is the caller\textquotesingle{}s responsibility to free this memory when it is no longer needed. The maximum length of the generated filename is defined by MAX\+\_\+\+FILENAME\+\_\+\+LENGTH, which should be set appropriately to accommodate the longest expected filename. 
+\end{DoxyNote}
+\Hypertarget{utils_8h_abe5cbdd0620603e270684a5f978dc6c2}\index{utils.h@{utils.h}!generate\_random\_set@{generate\_random\_set}}
+\index{generate\_random\_set@{generate\_random\_set}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{generate\_random\_set()}{generate\_random\_set()}}
+{\footnotesize\ttfamily \label{utils_8h_abe5cbdd0620603e270684a5f978dc6c2} 
+void generate\+\_\+random\+\_\+set (\begin{DoxyParamCaption}\item[{unsigned long}]{upper\+\_\+bound}{, }\item[{unsigned long}]{size}{, }\item[{unsigned long}]{set}{\mbox{[}size\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Generates a random set of unique integers within a specified range. 
+
+Generates a random set of unique integers within a specified range.
+
+The function generates a random set of unique integers from 0 to upper\+\_\+bound -\/ 1, ensuring that the size of the set is equal to size. It uses the modern Fisher-\/\+Yates shuffle algorithm to randomly permute an array of integers from 0 to upper\+\_\+bound -\/ 1, and then selects the first size elements from this shuffled array. The resulting set is sorted in ascending order using the qsort function with a custom comparison function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em upper\+\_\+bound} & An unsigned long integer representing the upper limit of the range from which unique integers will be selected. The function will generate integers in the range \mbox{[}0, upper\+\_\+bound). \\
+\hline
+{\em size} & An unsigned long integer representing the number of unique integers to be generated in the set. The function will ensure that the size of the generated set is equal to this value. \\
+\hline
+{\em set} & A pointer to an array of unsigned long integers where the generated unique integers will be stored. The size of this array should be at least size elements to hold the generated set.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Algorithm\+:
+\begin{DoxyEnumerate}
+\item Initialize an array arr containing all integers from 0 to upper\+\_\+bound -\/ 1.
+\item Shuffle the array in-\/place using the modern Fisher-\/\+Yates shuffle\+: ◦ Iterate from the last element to the second element. ◦ In each iteration, generate a random index j such that 0 \texorpdfstring{$<$}{<}= j \texorpdfstring{$<$}{<}= i. ◦ Swap the elements at indices i and j.
+\item Copy the first size elements from the shuffled array into set.
+\item Sort the set array in ascending order. 
+\end{DoxyEnumerate}
+\end{DoxyNote}
+\Hypertarget{utils_8h_aee6a52e0a51200073ab9001de380536c}\index{utils.h@{utils.h}!generate\_seed\_filename@{generate\_seed\_filename}}
+\index{generate\_seed\_filename@{generate\_seed\_filename}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{generate\_seed\_filename()}{generate\_seed\_filename()}}
+{\footnotesize\ttfamily \label{utils_8h_aee6a52e0a51200073ab9001de380536c} 
+char \texorpdfstring{$\ast$}{*} generate\+\_\+seed\+\_\+filename (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{prefix}{, }\item[{int}]{n}{, }\item[{int}]{k}{, }\item[{int}]{d}{}\end{DoxyParamCaption})}
+
+
+
+Generates a filename for a seed based on prefix and parameters. 
+
+Generates a filename for a seed based on prefix and parameters.
+
+The function constructs a filename for a seed by concatenating a predefined cache directory with a prefix and the parameters n, k, and d. The resulting filename is formatted as "{}cache\+\_\+dir/prefix\+\_\+n\+\_\+k\+\_\+d\+\_\+seed.\+bin"{}, where cache\+\_\+dir is defined as "{}matrix\+\_\+cache/"{}, and prefix, n, k, and d are provided as parameters. The function allocates memory for the filename string, formats it using snprintf, and returns the pointer to the generated filename.
+
+
+\begin{DoxyParams}{Parameters}
+{\em prefix} & A pointer to a constant character string that serves as a prefix for the filename. This prefix is typically used to identify the type of seed or its specific characteristics, such as "{}\+H\+\_\+\+A"{}, "{}\+G1"{}, or "{}\+G2"{}, depending on the context of the seed being generated or stored. \\
+\hline
+{\em n} & An integer representing the length of the code. This value is used to uniquely identify the seed associated with a specific code length. \\
+\hline
+{\em k} & An integer representing the dimension of the code. This value is used to uniquely identify the seed associated with a specific code dimension. \\
+\hline
+{\em d} & An integer representing the minimum distance of the code. This value is used to uniquely identify the seed associated with a specific code minimum distance.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char\texorpdfstring{$\ast$}{*} A pointer to a dynamically allocated string containing the generated filename. If memory allocation fails, it returns NULL. The caller is responsible for freeing this memory when it is no longer needed. 
+\end{DoxyReturn}
+\Hypertarget{utils_8h_aefef1fc8ea5469aff22fce16404f82d4}\index{utils.h@{utils.h}!load\_matrix@{load\_matrix}}
+\index{load\_matrix@{load\_matrix}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{load\_matrix()}{load\_matrix()}}
+{\footnotesize\ttfamily \label{utils_8h_aefef1fc8ea5469aff22fce16404f82d4} 
+int load\+\_\+matrix (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{, }\item[{nmod\+\_\+mat\+\_\+t}]{matrix}{}\end{DoxyParamCaption})}
+
+
+
+Loads a matrix from a text file in FLINT format. 
+
+Loads a matrix from a text file in FLINT format.
+
+It opens a file with the specified filename for reading. If it fails to open the file, it returns 0. It then reads the dimensions of the matrix (number of rows and columns) from the file. If it fails to read these dimensions, it closes the file and returns 0. The function clears any existing data in the provided matrix, initializes it with the specified dimensions, and then reads each entry of the matrix from the file, setting the corresponding entry in the matrix using nmod\+\_\+mat\+\_\+set\+\_\+entry. If it fails to read any value, it closes the file and returns 0. Finally, it closes the file and returns 1 to indicate success.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & A pointer to a constant character string that specifies the name of the file from which the matrix will be loaded. \\
+\hline
+{\em matrix} & A pointer to an nmod\+\_\+mat\+\_\+t type, which represents a matrix in the FLINT library.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if the matrix was successfully loaded from the file, or 0 if there was an error (e.\+g., file not found, failed to read dimensions or values).
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The file should be in a specific text format that includes the dimensions of the matrix followed by its entries. 
+\end{DoxyNote}
+\Hypertarget{utils_8h_a9b8caa6ee7537617613701fce02b972c}\index{utils.h@{utils.h}!load\_params@{load\_params}}
+\index{load\_params@{load\_params}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{load\_params()}{load\_params()}}
+{\footnotesize\ttfamily \label{utils_8h_a9b8caa6ee7537617613701fce02b972c} 
+bool load\+\_\+params (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structcode}{code}} \texorpdfstring{$\ast$}{*}}]{C\+\_\+A}{, }\item[{struct \mbox{\hyperlink{structcode}{code}} \texorpdfstring{$\ast$}{*}}]{C1}{, }\item[{struct \mbox{\hyperlink{structcode}{code}} \texorpdfstring{$\ast$}{*}}]{C2}{}\end{DoxyParamCaption})}
+
+
+
+Loads parameters for codes from a file. 
+
+Loads parameters for codes from a file.
+
+It opens a file named "{}params.\+txt"{} in read mode and reads key-\/value pairs from it. The keys correspond to parameters of the codes, such as "{}\+H\+\_\+\+A\+\_\+n"{}, "{}\+H\+\_\+\+A\+\_\+k"{}, "{}\+H\+\_\+\+A\+\_\+d"{}, "{}\+G1\+\_\+n"{}, "{}\+G1\+\_\+k"{}, "{}\+G1\+\_\+d"{}, "{}\+G2\+\_\+n"{}, "{}\+G2\+\_\+k"{}, and "{}\+G2\+\_\+d"{}. For each key, it assigns the corresponding value to the appropriate field in the provided code structures (C\+\_\+A, C1, and C2). If the file cannot be opened, it prints an error message and returns false. If all parameters are successfully loaded, it returns true.
+
+
+\begin{DoxyParams}{Parameters}
+{\em C\+\_\+A} & A pointer to the concatenated code structure, which contains parameters for the concatenated code (C\+\_\+A). \\
+\hline
+{\em C1} & A pointer to the first generator code structure, which contains parameters for the first code (C1). \\
+\hline
+{\em C2} & A pointer to the second generator code structure, which contains parameters for the second code (C2). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the parameters were successfully loaded from the file, meaning that the file was opened, all key-\/value pairs were read, and the corresponding fields in the code structures were set. 
+
+false If there was an error opening the file or if any key-\/value pair could not be read, indicating that the parameters were not loaded successfully.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The function assumes that the file "{}params.\+txt"{} exists and is formatted correctly with key-\/value pairs. If any key is missing or if the file cannot be read, the function will not set the corresponding fields in the code structures. 
+\end{DoxyNote}
+\Hypertarget{utils_8h_a2c0016f5618e2882d9261251b7fada82}\index{utils.h@{utils.h}!load\_seed@{load\_seed}}
+\index{load\_seed@{load\_seed}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{load\_seed()}{load\_seed()}}
+{\footnotesize\ttfamily \label{utils_8h_a2c0016f5618e2882d9261251b7fada82} 
+bool load\+\_\+seed (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{, }\item[{unsigned char \texorpdfstring{$\ast$}{*}}]{seed}{}\end{DoxyParamCaption})}
+
+
+
+Loads a seed from a binary file. 
+
+The function takes a filename and a pointer to an unsigned char array (seed) as input. It opens the specified file in binary read mode ("{}rb"{}). If the file cannot be opened, it returns false. It then reads SEED\+\_\+\+SIZE bytes from the file into the seed array using fread. After reading, it closes the file and checks if the number of bytes read matches SEED\+\_\+\+SIZE. If they match, it returns true, indicating that the seed was successfully loaded; otherwise, it returns false.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & A pointer to a constant character string that specifies the name of the file from which the seed will be loaded. The file should contain binary data representing the seed. \\
+\hline
+{\em seed} & A pointer to an unsigned char array where the loaded seed data will be stored. The size of this array should be equal to SEED\+\_\+\+SIZE, which is defined in the constants header file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the seed was successfully loaded from the file, meaning that the file was opened, the seed data was read, and the correct number of bytes was read. 
+
+false If there was an error opening the file or if the number of bytes read does not match SEED\+\_\+\+SIZE, indicating that the seed was not loaded successfully. 
+\end{DoxyReturn}
+\Hypertarget{utils_8h_adc1e64667d966146e31b71ac4476d009}\index{utils.h@{utils.h}!normalize\_message\_length@{normalize\_message\_length}}
+\index{normalize\_message\_length@{normalize\_message\_length}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{normalize\_message\_length()}{normalize\_message\_length()}}
+{\footnotesize\ttfamily \label{utils_8h_adc1e64667d966146e31b71ac4476d009} 
+char \texorpdfstring{$\ast$}{*} normalize\+\_\+message\+\_\+length (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{msg}{, }\item[{size\+\_\+t}]{msg\+\_\+len}{, }\item[{size\+\_\+t}]{target\+\_\+len}{, }\item[{size\+\_\+t \texorpdfstring{$\ast$}{*}}]{final\+\_\+len\+\_\+out}{}\end{DoxyParamCaption})}
+
+
+
+Normalizes message length by padding or truncating. 
+
+Normalizes message length by padding or truncating.
+
+The function takes a message, its length, a target length, and an optional pointer to store the final length. It allocates memory for a new message of the target length. If the original message is shorter than the target length, it copies the original message and fills the remaining space with random uppercase letters (A-\/Z). If the original message is longer than the target length, it truncates it to fit. If the lengths match, it simply copies the original message. The function returns the newly created message and updates the final length if requested.
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & A pointer to a constant character string that represents the original message to be normalized. The message can be of any length, and the function will either pad it with random characters or truncate it to fit the target length. \\
+\hline
+{\em msg\+\_\+len} & The length of the original message in bytes. This value is used to determine whether the message needs to be padded or truncated to match the target length. \\
+\hline
+{\em target\+\_\+len} & The desired length of the normalized message. The function will ensure that the final message has this exact length by either padding it with random characters or truncating it if necessary. \\
+\hline
+{\em final\+\_\+len\+\_\+out} & A pointer to a size\+\_\+t variable where the final length of the normalized message will be stored. This parameter is optional; if it is NULL, the function will not update the final length. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char\texorpdfstring{$\ast$}{*} A pointer to a dynamically allocated string containing the normalized message.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The function allocates memory for the new message, so it is the caller\textquotesingle{}s responsibility to free this memory when it is no longer needed. If memory allocation fails, the function will print an error message and return NULL. 
+\end{DoxyNote}
+\Hypertarget{utils_8h_ab5e8b6289c8d0f065872cbe531443692}\index{utils.h@{utils.h}!read\_file@{read\_file}}
+\index{read\_file@{read\_file}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{read\_file()}{read\_file()}}
+{\footnotesize\ttfamily \label{utils_8h_ab5e8b6289c8d0f065872cbe531443692} 
+char \texorpdfstring{$\ast$}{*} read\+\_\+file (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Reads the contents of a file into a string. 
+
+Reads the contents of a file into a string.
+
+It opens the specified file in read mode, checks if the file was opened successfully, and then reads its contents into a buffer. The function first seeks to the end of the file to determine its length, rewinds to the beginning, allocates memory for the buffer, and reads the file\textquotesingle{}s contents into it. Finally, it closes the file and returns the buffer containing the file\textquotesingle{}s contents as a null-\/terminated string. If any step fails (e.\+g., file not found, memory allocation failure), it prints an error message and returns NULL.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & A pointer to a constant character string that specifies the name of the file to be read. The function will attempt to open this file in read mode and read its contents. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char\texorpdfstring{$\ast$}{*} A pointer to a dynamically allocated string containing the contents of the file. If the file cannot be opened or is empty, it returns NULL.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The caller is responsible for freeing the returned buffer after use to avoid memory leaks. 
+\end{DoxyNote}
+\Hypertarget{utils_8h_ae7369b1b9abc62b85ee1e13cf4db0566}\index{utils.h@{utils.h}!read\_file\_or\_generate@{read\_file\_or\_generate}}
+\index{read\_file\_or\_generate@{read\_file\_or\_generate}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{read\_file\_or\_generate()}{read\_file\_or\_generate()}}
+{\footnotesize\ttfamily \label{utils_8h_ae7369b1b9abc62b85ee1e13cf4db0566} 
+char \texorpdfstring{$\ast$}{*} read\+\_\+file\+\_\+or\+\_\+generate (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{, }\item[{int}]{msg\+\_\+len}{}\end{DoxyParamCaption})}
+
+
+
+Reads a message from file or generates random message. 
+
+Reads a message from file or generates random message.
+
+It attempts to open the specified file in read mode. If the file is successfully opened, it checks its length. If the length is zero or less, it generates a random message of a specified length and saves it to the file. If the file contains valid data, it reads the contents into a dynamically allocated string and returns it. If the file cannot be opened, it generates a random message, saves it to the file, and returns that message.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & A pointer to a constant character string that specifies the name of the file to read the message from. If the file does not exist or is empty, a random message will be generated and saved to this file. \\
+\hline
+{\em msg\+\_\+len} & An integer representing the length of the message to be generated if the file is empty or does not exist. The function will generate a random message of this length using uppercase letters (A-\/Z). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char\texorpdfstring{$\ast$}{*} A pointer to a dynamically allocated string containing the message read from the file or the generated random message. If memory allocation fails or if there is an error reading the file, it returns NULL. The caller is responsible for freeing the returned string after use. 
+\end{DoxyReturn}
+\Hypertarget{utils_8h_ab6d5b54e91321609a751e995f91e457b}\index{utils.h@{utils.h}!save\_matrix@{save\_matrix}}
+\index{save\_matrix@{save\_matrix}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{save\_matrix()}{save\_matrix()}}
+{\footnotesize\ttfamily \label{utils_8h_ab6d5b54e91321609a751e995f91e457b} 
+void save\+\_\+matrix (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{, }\item[{const nmod\+\_\+mat\+\_\+t}]{matrix}{}\end{DoxyParamCaption})}
+
+
+
+Saves a matrix to a text file in FLINT format. 
+
+Saves a matrix to a text file in FLINT format.
+
+The function opens a file with the specified filename for writing. If it fails to open the file, it prints an error message and returns. It then retrieves the number of rows and columns of the matrix using nmod\+\_\+mat\+\_\+nrows and nmod\+\_\+mat\+\_\+ncols, respectively, and writes these dimensions to the file. After that, it iterates through each entry of the matrix, retrieves its value using nmod\+\_\+mat\+\_\+entry, and writes it to the file in a space-\/separated format. Finally, it closes the file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & A pointer to a constant character string that specifies the name of the file where the matrix will be saved. The file will be created if it does not exist, or overwritten if it does. \\
+\hline
+{\em matrix} & A pointer to an nmod\+\_\+mat\+\_\+t type, which represents a matrix in the FLINT library. The matrix should be initialized and populated with values before calling this function. The function will save the matrix in a specific text format that includes its dimensions followed by its entries.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The function does not perform any error checking on the matrix itself, such as ensuring it is initialized or has valid dimensions. It assumes that the matrix is properly set up before calling this function. The file will be created in the current working directory, and if the file already exists, it will be overwritten. 
+\end{DoxyNote}
+\Hypertarget{utils_8h_a277abfab9e3f799e1d38a673474eea75}\index{utils.h@{utils.h}!save\_seed@{save\_seed}}
+\index{save\_seed@{save\_seed}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{save\_seed()}{save\_seed()}}
+{\footnotesize\ttfamily \label{utils_8h_a277abfab9e3f799e1d38a673474eea75} 
+bool save\+\_\+seed (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{, }\item[{const unsigned char \texorpdfstring{$\ast$}{*}}]{seed}{}\end{DoxyParamCaption})}
+
+
+
+Saves a seed to a binary file. 
+
+The function takes a filename and a pointer to an unsigned char array (seed) as input. It opens the specified file in binary write mode ("{}wb"{}). If the file cannot be opened, it returns false. It then writes the seed data to the file using fwrite, which writes SEED\+\_\+\+SIZE bytes from the seed array to the file. After writing, it closes the file and checks if the number of bytes written matches SEED\+\_\+\+SIZE. If they match, it returns true, indicating that the seed was successfully saved; otherwise, it returns false.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & A pointer to a constant character string that specifies the name of the file where the seed will be saved. The file will be created if it does not exist, or overwritten if it does. \\
+\hline
+{\em seed} & A pointer to an unsigned char array that contains the seed data to be saved. The size of this array should be equal to SEED\+\_\+\+SIZE, which is defined in the constants header file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the seed was successfully saved to the file, meaning that the file was opened, the seed data was written, and the correct number of bytes was written. 
+
+false If there was an error opening the file or if the number of bytes written does not match SEED\+\_\+\+SIZE, indicating that the seed was not saved successfully. 
+\end{DoxyReturn}
+\Hypertarget{utils_8h_a0abfd8660e4c30a446271184dc904c96}\index{utils.h@{utils.h}!weight@{weight}}
+\index{weight@{weight}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{weight()}{weight()}}
+{\footnotesize\ttfamily \label{utils_8h_a0abfd8660e4c30a446271184dc904c96} 
+long weight (\begin{DoxyParamCaption}\item[{nmod\+\_\+mat\+\_\+t}]{array}{}\end{DoxyParamCaption})}
+
+
+
+Calculates the Hamming weight of a matrix row. 
+
+Calculates the Hamming weight of a matrix row.
+
+The Hamming weight is the number of non-\/zero elements in a row of a matrix. This function iterates through the first row of the provided matrix and counts how many entries are equal to 1, which corresponds to the Hamming weight. It assumes that the matrix is represented as an nmod\+\_\+mat\+\_\+t type from the FLINT library, which allows for efficient access to matrix entries.
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & A pointer to an nmod\+\_\+mat\+\_\+t type, which represents a matrix in the FLINT library.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+long The Hamming weight of the first row of the matrix, which is the count of entries equal to 1.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The function assumes that the matrix has at least one row and that the entries are in the range of 0 to MOD-\/1, where MOD is defined in the FLINT library. It does not handle cases where the matrix is empty or has no rows. 
+\end{DoxyNote}

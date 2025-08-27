@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+
+\bibitem{chacha20video}
+Chacha20 stream cipher explained, 2024.
+\newblock Video tutorial explaining the ChaCha20 stream cipher algorithm.
+
+\bibitem{chacha20xilinx}
+Xilinx.
+\newblock Chacha20 implementation guide, 2019.
+\newblock Technical documentation for ChaCha20 implementation in Vitis
+  Libraries.
+
+\end{thebibliography}

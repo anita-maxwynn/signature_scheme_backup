@@ -1,0 +1,173 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Class Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Class List}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}File Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}File List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Class Documentation}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}code Struct Reference}{5}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Detailed Description}{5}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Member Data Documentation}{5}{subsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.1}d}{5}{subsubsection.3.1.2.1}%
+\contentsline {subsubsection}{\numberline {3.1.2.2}k}{5}{subsubsection.3.1.2.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.3}n}{6}{subsubsection.3.1.2.3}%
+\contentsline {section}{\numberline {3.2}Params Struct Reference}{6}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Detailed Description}{6}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Member Data Documentation}{6}{subsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.1}d}{6}{subsubsection.3.2.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2.2}k}{6}{subsubsection.3.2.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.3}n}{6}{subsubsection.3.2.2.3}%
+\contentsline {chapter}{\numberline {4}File Documentation}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}signature-\/scheme/include/constants.h File Reference}{7}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Detailed Description}{7}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Macro Definition Documentation}{8}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}CACHE\_DIR}{8}{subsubsection.4.1.2.1}%
+\contentsline {subsubsection}{\numberline {4.1.2.2}MAX\_FILENAME\_LENGTH}{8}{subsubsection.4.1.2.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.3}MOD}{8}{subsubsection.4.1.2.3}%
+\contentsline {subsubsection}{\numberline {4.1.2.4}OUTPUT\_DIR}{8}{subsubsection.4.1.2.4}%
+\contentsline {subsubsection}{\numberline {4.1.2.5}OUTPUT\_PATH}{8}{subsubsection.4.1.2.5}%
+\contentsline {subsubsection}{\numberline {4.1.2.6}PARAM\_PATH}{8}{subsubsection.4.1.2.6}%
+\contentsline {subsubsection}{\numberline {4.1.2.7}PRINT}{9}{subsubsection.4.1.2.7}%
+\contentsline {subsubsection}{\numberline {4.1.2.8}SEED\_SIZE}{9}{subsubsection.4.1.2.8}%
+\contentsline {section}{\numberline {4.2}constants.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{9}{section.4.2}%
+\contentsline {section}{\numberline {4.3}signature-\/scheme/include/keygen.h File Reference}{9}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Detailed Description}{10}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Function Documentation}{10}{subsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.1}create\_generator\_matrix\_from\_seed()}{10}{subsubsection.4.3.2.1}%
+\contentsline {subsubsection}{\numberline {4.3.2.2}generate\_keys()}{11}{subsubsection.4.3.2.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.3}generate\_parity\_check\_matrix\_from\_seed()}{12}{subsubsection.4.3.2.3}%
+\contentsline {subsubsection}{\numberline {4.3.2.4}get\_or\_generate\_matrix\_with\_seed()}{14}{subsubsection.4.3.2.4}%
+\contentsline {section}{\numberline {4.4}keygen.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{15}{section.4.4}%
+\contentsline {section}{\numberline {4.5}signature-\/scheme/include/matrix.h File Reference}{15}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Detailed Description}{16}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Function Documentation}{16}{subsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.2.1}make\_systematic()}{16}{subsubsection.4.5.2.1}%
+\contentsline {subsubsection}{\numberline {4.5.2.2}multiply\_matrices\_gf2()}{16}{subsubsection.4.5.2.2}%
+\contentsline {subsubsection}{\numberline {4.5.2.3}print\_matrix()}{17}{subsubsection.4.5.2.3}%
+\contentsline {subsubsection}{\numberline {4.5.2.4}rref()}{18}{subsubsection.4.5.2.4}%
+\contentsline {subsubsection}{\numberline {4.5.2.5}transpose\_matrix()}{19}{subsubsection.4.5.2.5}%
+\contentsline {section}{\numberline {4.6}matrix.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{20}{section.4.6}%
+\contentsline {section}{\numberline {4.7}signature-\/scheme/include/params.h File Reference}{20}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Detailed Description}{21}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Function Documentation}{21}{subsection.4.7.2}%
+\contentsline {subsubsection}{\numberline {4.7.2.1}get\_G1\_d()}{21}{subsubsection.4.7.2.1}%
+\contentsline {subsubsection}{\numberline {4.7.2.2}get\_G1\_k()}{22}{subsubsection.4.7.2.2}%
+\contentsline {subsubsection}{\numberline {4.7.2.3}get\_G1\_n()}{22}{subsubsection.4.7.2.3}%
+\contentsline {subsubsection}{\numberline {4.7.2.4}get\_G2\_d()}{22}{subsubsection.4.7.2.4}%
+\contentsline {subsubsection}{\numberline {4.7.2.5}get\_G2\_k()}{22}{subsubsection.4.7.2.5}%
+\contentsline {subsubsection}{\numberline {4.7.2.6}get\_G2\_n()}{23}{subsubsection.4.7.2.6}%
+\contentsline {subsubsection}{\numberline {4.7.2.7}get\_H\_A\_d()}{23}{subsubsection.4.7.2.7}%
+\contentsline {subsubsection}{\numberline {4.7.2.8}get\_H\_A\_k()}{23}{subsubsection.4.7.2.8}%
+\contentsline {subsubsection}{\numberline {4.7.2.9}get\_H\_A\_n()}{23}{subsubsection.4.7.2.9}%
+\contentsline {subsubsection}{\numberline {4.7.2.10}get\_user\_input()}{24}{subsubsection.4.7.2.10}%
+\contentsline {subsubsection}{\numberline {4.7.2.11}get\_yes\_no\_input()}{25}{subsubsection.4.7.2.11}%
+\contentsline {subsubsection}{\numberline {4.7.2.12}init\_params()}{25}{subsubsection.4.7.2.12}%
+\contentsline {subsubsection}{\numberline {4.7.2.13}random\_range()}{25}{subsubsection.4.7.2.13}%
+\contentsline {section}{\numberline {4.8}params.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{26}{section.4.8}%
+\contentsline {section}{\numberline {4.9}signature-\/scheme/include/signer.h File Reference}{27}{section.4.9}%
+\contentsline {subsection}{\numberline {4.9.1}Detailed Description}{27}{subsection.4.9.1}%
+\contentsline {subsection}{\numberline {4.9.2}Function Documentation}{27}{subsection.4.9.2}%
+\contentsline {subsubsection}{\numberline {4.9.2.1}generate\_signature()}{27}{subsubsection.4.9.2.1}%
+\contentsline {section}{\numberline {4.10}signer.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{29}{section.4.10}%
+\contentsline {section}{\numberline {4.11}signature-\/scheme/include/utils.h File Reference}{29}{section.4.11}%
+\contentsline {subsection}{\numberline {4.11.1}Detailed Description}{30}{subsection.4.11.1}%
+\contentsline {subsection}{\numberline {4.11.2}Function Documentation}{30}{subsection.4.11.2}%
+\contentsline {subsubsection}{\numberline {4.11.2.1}binary\_entropy()}{30}{subsubsection.4.11.2.1}%
+\contentsline {subsubsection}{\numberline {4.11.2.2}ensure\_matrix\_cache()}{31}{subsubsection.4.11.2.2}%
+\contentsline {subsubsection}{\numberline {4.11.2.3}ensure\_output\_directory()}{31}{subsubsection.4.11.2.3}%
+\contentsline {subsubsection}{\numberline {4.11.2.4}file\_exists()}{32}{subsubsection.4.11.2.4}%
+\contentsline {subsubsection}{\numberline {4.11.2.5}generate\_matrix\_filename()}{32}{subsubsection.4.11.2.5}%
+\contentsline {subsubsection}{\numberline {4.11.2.6}generate\_random\_set()}{33}{subsubsection.4.11.2.6}%
+\contentsline {subsubsection}{\numberline {4.11.2.7}generate\_seed\_filename()}{34}{subsubsection.4.11.2.7}%
+\contentsline {subsubsection}{\numberline {4.11.2.8}load\_matrix()}{34}{subsubsection.4.11.2.8}%
+\contentsline {subsubsection}{\numberline {4.11.2.9}load\_params()}{35}{subsubsection.4.11.2.9}%
+\contentsline {subsubsection}{\numberline {4.11.2.10}load\_seed()}{36}{subsubsection.4.11.2.10}%
+\contentsline {subsubsection}{\numberline {4.11.2.11}normalize\_message\_length()}{36}{subsubsection.4.11.2.11}%
+\contentsline {subsubsection}{\numberline {4.11.2.12}read\_file()}{37}{subsubsection.4.11.2.12}%
+\contentsline {subsubsection}{\numberline {4.11.2.13}read\_file\_or\_generate()}{37}{subsubsection.4.11.2.13}%
+\contentsline {subsubsection}{\numberline {4.11.2.14}save\_matrix()}{38}{subsubsection.4.11.2.14}%
+\contentsline {subsubsection}{\numberline {4.11.2.15}save\_seed()}{38}{subsubsection.4.11.2.15}%
+\contentsline {subsubsection}{\numberline {4.11.2.16}weight()}{39}{subsubsection.4.11.2.16}%
+\contentsline {section}{\numberline {4.12}utils.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{40}{section.4.12}%
+\contentsline {section}{\numberline {4.13}signature-\/scheme/include/verifier.h File Reference}{40}{section.4.13}%
+\contentsline {subsection}{\numberline {4.13.1}Detailed Description}{40}{subsection.4.13.1}%
+\contentsline {subsection}{\numberline {4.13.2}Function Documentation}{41}{subsection.4.13.2}%
+\contentsline {subsubsection}{\numberline {4.13.2.1}verify\_signature()}{41}{subsubsection.4.13.2.1}%
+\contentsline {section}{\numberline {4.14}verifier.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{41}{section.4.14}%
+\contentsline {section}{\numberline {4.15}signature-\/scheme/src/keygen.c File Reference}{42}{section.4.15}%
+\contentsline {subsection}{\numberline {4.15.1}Detailed Description}{42}{subsection.4.15.1}%
+\contentsline {subsection}{\numberline {4.15.2}Function Documentation}{43}{subsection.4.15.2}%
+\contentsline {subsubsection}{\numberline {4.15.2.1}create\_generator\_matrix()}{43}{subsubsection.4.15.2.1}%
+\contentsline {subsubsection}{\numberline {4.15.2.2}create\_generator\_matrix\_from\_seed()}{44}{subsubsection.4.15.2.2}%
+\contentsline {subsubsection}{\numberline {4.15.2.3}generate\_keys()}{45}{subsubsection.4.15.2.3}%
+\contentsline {subsubsection}{\numberline {4.15.2.4}generate\_parity\_check\_matrix()}{46}{subsubsection.4.15.2.4}%
+\contentsline {subsubsection}{\numberline {4.15.2.5}generate\_parity\_check\_matrix\_from\_seed()}{47}{subsubsection.4.15.2.5}%
+\contentsline {subsubsection}{\numberline {4.15.2.6}generate\_random\_seed()}{48}{subsubsection.4.15.2.6}%
+\contentsline {subsubsection}{\numberline {4.15.2.7}get\_or\_generate\_matrix\_with\_seed()}{48}{subsubsection.4.15.2.7}%
+\contentsline {section}{\numberline {4.16}signature-\/scheme/src/main.c File Reference}{50}{section.4.16}%
+\contentsline {subsection}{\numberline {4.16.1}Detailed Description}{50}{subsection.4.16.1}%
+\contentsline {subsection}{\numberline {4.16.2}Function Documentation}{50}{subsection.4.16.2}%
+\contentsline {subsubsection}{\numberline {4.16.2.1}keygen()}{50}{subsubsection.4.16.2.1}%
+\contentsline {subsubsection}{\numberline {4.16.2.2}main()}{52}{subsubsection.4.16.2.2}%
+\contentsline {subsubsection}{\numberline {4.16.2.3}sign()}{52}{subsubsection.4.16.2.3}%
+\contentsline {subsubsection}{\numberline {4.16.2.4}verify()}{54}{subsubsection.4.16.2.4}%
+\contentsline {section}{\numberline {4.17}signature-\/scheme/src/matrix.c File Reference}{55}{section.4.17}%
+\contentsline {subsection}{\numberline {4.17.1}Detailed Description}{55}{subsection.4.17.1}%
+\contentsline {subsection}{\numberline {4.17.2}Function Documentation}{56}{subsection.4.17.2}%
+\contentsline {subsubsection}{\numberline {4.17.2.1}make\_systematic()}{56}{subsubsection.4.17.2.1}%
+\contentsline {subsubsection}{\numberline {4.17.2.2}multiply\_matrices\_gf2()}{57}{subsubsection.4.17.2.2}%
+\contentsline {subsubsection}{\numberline {4.17.2.3}print\_matrix()}{57}{subsubsection.4.17.2.3}%
+\contentsline {subsubsection}{\numberline {4.17.2.4}rref()}{58}{subsubsection.4.17.2.4}%
+\contentsline {subsubsection}{\numberline {4.17.2.5}swap\_columns()}{59}{subsubsection.4.17.2.5}%
+\contentsline {subsubsection}{\numberline {4.17.2.6}transpose\_matrix()}{59}{subsubsection.4.17.2.6}%
+\contentsline {section}{\numberline {4.18}signature-\/scheme/src/params.c File Reference}{60}{section.4.18}%
+\contentsline {subsection}{\numberline {4.18.1}Detailed Description}{61}{subsection.4.18.1}%
+\contentsline {subsection}{\numberline {4.18.2}Function Documentation}{62}{subsection.4.18.2}%
+\contentsline {subsubsection}{\numberline {4.18.2.1}generate\_random\_params()}{62}{subsubsection.4.18.2.1}%
+\contentsline {subsubsection}{\numberline {4.18.2.2}get\_G1\_d()}{63}{subsubsection.4.18.2.2}%
+\contentsline {subsubsection}{\numberline {4.18.2.3}get\_G1\_k()}{63}{subsubsection.4.18.2.3}%
+\contentsline {subsubsection}{\numberline {4.18.2.4}get\_G1\_n()}{63}{subsubsection.4.18.2.4}%
+\contentsline {subsubsection}{\numberline {4.18.2.5}get\_G2\_d()}{63}{subsubsection.4.18.2.5}%
+\contentsline {subsubsection}{\numberline {4.18.2.6}get\_G2\_k()}{64}{subsubsection.4.18.2.6}%
+\contentsline {subsubsection}{\numberline {4.18.2.7}get\_G2\_n()}{64}{subsubsection.4.18.2.7}%
+\contentsline {subsubsection}{\numberline {4.18.2.8}get\_H\_A\_d()}{64}{subsubsection.4.18.2.8}%
+\contentsline {subsubsection}{\numberline {4.18.2.9}get\_H\_A\_k()}{64}{subsubsection.4.18.2.9}%
+\contentsline {subsubsection}{\numberline {4.18.2.10}get\_H\_A\_n()}{65}{subsubsection.4.18.2.10}%
+\contentsline {subsubsection}{\numberline {4.18.2.11}get\_param\_input()}{65}{subsubsection.4.18.2.11}%
+\contentsline {subsubsection}{\numberline {4.18.2.12}get\_user\_input()}{65}{subsubsection.4.18.2.12}%
+\contentsline {subsubsection}{\numberline {4.18.2.13}get\_yes\_no\_input()}{67}{subsubsection.4.18.2.13}%
+\contentsline {subsubsection}{\numberline {4.18.2.14}init\_params()}{67}{subsubsection.4.18.2.14}%
+\contentsline {subsubsection}{\numberline {4.18.2.15}random\_range()}{67}{subsubsection.4.18.2.15}%
+\contentsline {subsection}{\numberline {4.18.3}Variable Documentation}{68}{subsection.4.18.3}%
+\contentsline {subsubsection}{\numberline {4.18.3.1}G1}{68}{subsubsection.4.18.3.1}%
+\contentsline {subsubsection}{\numberline {4.18.3.2}G2}{68}{subsubsection.4.18.3.2}%
+\contentsline {subsubsection}{\numberline {4.18.3.3}H\_A}{68}{subsubsection.4.18.3.3}%
+\contentsline {subsubsection}{\numberline {4.18.3.4}MESSAGE}{68}{subsubsection.4.18.3.4}%
+\contentsline {subsubsection}{\numberline {4.18.3.5}MESSAGE\_LEN}{69}{subsubsection.4.18.3.5}%
+\contentsline {section}{\numberline {4.19}signature-\/scheme/src/signer.c File Reference}{69}{section.4.19}%
+\contentsline {subsection}{\numberline {4.19.1}Detailed Description}{69}{subsection.4.19.1}%
+\contentsline {subsection}{\numberline {4.19.2}Function Documentation}{70}{subsection.4.19.2}%
+\contentsline {subsubsection}{\numberline {4.19.2.1}generate\_signature()}{70}{subsubsection.4.19.2.1}%
+\contentsline {section}{\numberline {4.20}signature-\/scheme/src/utils.c File Reference}{71}{section.4.20}%
+\contentsline {subsection}{\numberline {4.20.1}Detailed Description}{72}{subsection.4.20.1}%
+\contentsline {subsection}{\numberline {4.20.2}Function Documentation}{73}{subsection.4.20.2}%
+\contentsline {subsubsection}{\numberline {4.20.2.1}binary\_entropy()}{73}{subsubsection.4.20.2.1}%
+\contentsline {subsubsection}{\numberline {4.20.2.2}compare\_ints()}{73}{subsubsection.4.20.2.2}%
+\contentsline {subsubsection}{\numberline {4.20.2.3}ensure\_matrix\_cache()}{74}{subsubsection.4.20.2.3}%
+\contentsline {subsubsection}{\numberline {4.20.2.4}ensure\_output\_directory()}{74}{subsubsection.4.20.2.4}%
+\contentsline {subsubsection}{\numberline {4.20.2.5}file\_exists()}{74}{subsubsection.4.20.2.5}%
+\contentsline {subsubsection}{\numberline {4.20.2.6}generate\_matrix\_filename()}{75}{subsubsection.4.20.2.6}%
+\contentsline {subsubsection}{\numberline {4.20.2.7}generate\_random\_set()}{76}{subsubsection.4.20.2.7}%
+\contentsline {subsubsection}{\numberline {4.20.2.8}generate\_seed\_filename()}{76}{subsubsection.4.20.2.8}%
+\contentsline {subsubsection}{\numberline {4.20.2.9}load\_matrix()}{77}{subsubsection.4.20.2.9}%
+\contentsline {subsubsection}{\numberline {4.20.2.10}load\_params()}{78}{subsubsection.4.20.2.10}%
+\contentsline {subsubsection}{\numberline {4.20.2.11}load\_seed()}{78}{subsubsection.4.20.2.11}%
+\contentsline {subsubsection}{\numberline {4.20.2.12}normalize\_message\_length()}{79}{subsubsection.4.20.2.12}%
+\contentsline {subsubsection}{\numberline {4.20.2.13}read\_file()}{80}{subsubsection.4.20.2.13}%
+\contentsline {subsubsection}{\numberline {4.20.2.14}read\_file\_or\_generate()}{80}{subsubsection.4.20.2.14}%
+\contentsline {subsubsection}{\numberline {4.20.2.15}save\_matrix()}{81}{subsubsection.4.20.2.15}%
+\contentsline {subsubsection}{\numberline {4.20.2.16}save\_seed()}{81}{subsubsection.4.20.2.16}%
+\contentsline {subsubsection}{\numberline {4.20.2.17}weight()}{82}{subsubsection.4.20.2.17}%
+\contentsline {section}{\numberline {4.21}signature-\/scheme/src/verifier.c File Reference}{82}{section.4.21}%
+\contentsline {subsection}{\numberline {4.21.1}Detailed Description}{82}{subsection.4.21.1}%
+\contentsline {subsection}{\numberline {4.21.2}Function Documentation}{83}{subsection.4.21.2}%
+\contentsline {subsubsection}{\numberline {4.21.2.1}verify\_signature()}{83}{subsubsection.4.21.2.1}%

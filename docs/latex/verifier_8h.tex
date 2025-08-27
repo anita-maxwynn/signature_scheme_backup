@@ -1,0 +1,56 @@
+\doxysection{signature-\/scheme/include/verifier.h File Reference}
+\hypertarget{verifier_8h}{}\label{verifier_8h}\index{signature-\/scheme/include/verifier.h@{signature-\/scheme/include/verifier.h}}
+
+
+It is the header file for the verifier module.  
+
+
+{\ttfamily \#include $<$flint/nmod\+\_\+mat.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include "{}matrix.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{verifier_8h_a02f3b5f577378454c07b9e92ea9b3706}{verify\+\_\+signature}} (nmod\+\_\+mat\+\_\+t bin\+\_\+hash, size\+\_\+t message\+\_\+len, unsigned long sig\+\_\+len, nmod\+\_\+mat\+\_\+t signature, nmod\+\_\+mat\+\_\+t F, struct \mbox{\hyperlink{structcode}{code}} C\+\_\+A, nmod\+\_\+mat\+\_\+t \mbox{\hyperlink{params_8c_abb953f253a118190024fe5adb406bfcf}{H\+\_\+A}}, FILE \texorpdfstring{$\ast$}{*}output\+\_\+file)
+\begin{DoxyCompactList}\small\item\em Verifies a digital signature. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+It is the header file for the verifier module. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{verifier_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{verifier_8h_a02f3b5f577378454c07b9e92ea9b3706}\index{verifier.h@{verifier.h}!verify\_signature@{verify\_signature}}
+\index{verify\_signature@{verify\_signature}!verifier.h@{verifier.h}}
+\doxysubsubsection{\texorpdfstring{verify\_signature()}{verify\_signature()}}
+{\footnotesize\ttfamily \label{verifier_8h_a02f3b5f577378454c07b9e92ea9b3706} 
+void verify\+\_\+signature (\begin{DoxyParamCaption}\item[{nmod\+\_\+mat\+\_\+t}]{bin\+\_\+hash}{, }\item[{size\+\_\+t}]{message\+\_\+len}{, }\item[{unsigned long}]{sig\+\_\+len}{, }\item[{nmod\+\_\+mat\+\_\+t}]{signature}{, }\item[{nmod\+\_\+mat\+\_\+t}]{F}{, }\item[{struct \mbox{\hyperlink{structcode}{code}}}]{C\+\_\+A}{, }\item[{nmod\+\_\+mat\+\_\+t}]{H\+\_\+A}{, }\item[{FILE \texorpdfstring{$\ast$}{*}}]{output\+\_\+file}{}\end{DoxyParamCaption})}
+
+
+
+Verifies a digital signature. 
+
+This function verifies a digital signature by checking if the product of the binary hash of the message and the generator matrix equals the product of the parity-\/check matrix and the transposed signature. It uses the FLINT library for matrix operations and prints debug information.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bin\+\_\+hash} & Binary hash matrix for the message \\
+\hline
+{\em message\+\_\+len} & Length of the message \\
+\hline
+{\em sig\+\_\+len} & Length of the signature \\
+\hline
+{\em signature} & Signature matrix to verify \\
+\hline
+{\em F} & Combined matrix F = H\+\_\+A \texorpdfstring{$\ast$}{*} G\texorpdfstring{$\ast$}{*}\texorpdfstring{$^\wedge$}{\string^}T \\
+\hline
+{\em C\+\_\+A} & Code parameters for the concatenated code \\
+\hline
+{\em H\+\_\+A} & Parity check matrix for the concatenated code \\
+\hline
+{\em output\+\_\+file} & File to write verification output to \\
+\hline
+\end{DoxyParams}

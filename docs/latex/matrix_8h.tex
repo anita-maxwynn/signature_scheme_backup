@@ -1,0 +1,173 @@
+\doxysection{signature-\/scheme/include/matrix.h File Reference}
+\hypertarget{matrix_8h}{}\label{matrix_8h}\index{signature-\/scheme/include/matrix.h@{signature-\/scheme/include/matrix.h}}
+
+
+Header filr for declaration of matrix operations and error-\/correcting code structures for signature scheme.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$flint/nmod\+\_\+mat.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcode}{code}}
+\begin{DoxyCompactList}\small\item\em code refers to the generator matrix of code 1, code 2 and the parity check matrix H\+\_\+A\textquotesingle{}s attributes. All the parameters are unsigned long integers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{matrix_8h_aac32546c5107ae59188824ab1e6520d2}{print\+\_\+matrix}} (FILE \texorpdfstring{$\ast$}{*}fp, nmod\+\_\+mat\+\_\+t matrix)
+\begin{DoxyCompactList}\small\item\em Prints the contents of a matrix to a file stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{matrix_8h_ab077edda24692d5e752666a914d56d80}{transpose\+\_\+matrix}} (int rows, int cols, int matrix\mbox{[}rows\mbox{]}\mbox{[}cols\mbox{]}, int transpose\mbox{[}cols\mbox{]}\mbox{[}rows\mbox{]})
+\begin{DoxyCompactList}\small\item\em Computes the transpose of a matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{matrix_8h_a743c01002fbe11bc22fb98be6f7488bd}{multiply\+\_\+matrices\+\_\+gf2}} (nmod\+\_\+mat\+\_\+t C, const nmod\+\_\+mat\+\_\+t A, const nmod\+\_\+mat\+\_\+t B)
+\begin{DoxyCompactList}\small\item\em Performs matrix multiplication over GF(2). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{matrix_8h_a0bc0da924b4ebb01da72a57ea4a91dbc}{make\+\_\+systematic}} (unsigned long n, unsigned long k, nmod\+\_\+mat\+\_\+t H)
+\begin{DoxyCompactList}\small\item\em Makes a matrix systematic form. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{matrix_8h_abc101d9b1808a35b513e6bf1afbbeaea}{rref}} (int num\+\_\+rows, int num\+\_\+cols, int(\texorpdfstring{$\ast$}{*}H)\mbox{[}num\+\_\+cols\mbox{]})
+\begin{DoxyCompactList}\small\item\em Transforms a matrix into Reduced Row Echelon Form. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header filr for declaration of matrix operations and error-\/correcting code structures for signature scheme. 
+
+Header filr for declaration of matrix operations and error-\/correcting code structures for signature scheme. 
+
+\label{doc-func-members}
+\Hypertarget{matrix_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{matrix_8h_a0bc0da924b4ebb01da72a57ea4a91dbc}\index{matrix.h@{matrix.h}!make\_systematic@{make\_systematic}}
+\index{make\_systematic@{make\_systematic}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{make\_systematic()}{make\_systematic()}}
+{\footnotesize\ttfamily \label{matrix_8h_a0bc0da924b4ebb01da72a57ea4a91dbc} 
+void make\+\_\+systematic (\begin{DoxyParamCaption}\item[{unsigned long}]{n}{, }\item[{unsigned long}]{k}{, }\item[{nmod\+\_\+mat\+\_\+t}]{H}{}\end{DoxyParamCaption})}
+
+
+
+Makes a matrix systematic form. 
+
+\Hypertarget{matrix_8h_a743c01002fbe11bc22fb98be6f7488bd}\index{matrix.h@{matrix.h}!multiply\_matrices\_gf2@{multiply\_matrices\_gf2}}
+\index{multiply\_matrices\_gf2@{multiply\_matrices\_gf2}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{multiply\_matrices\_gf2()}{multiply\_matrices\_gf2()}}
+{\footnotesize\ttfamily \label{matrix_8h_a743c01002fbe11bc22fb98be6f7488bd} 
+void multiply\+\_\+matrices\+\_\+gf2 (\begin{DoxyParamCaption}\item[{nmod\+\_\+mat\+\_\+t}]{C}{, }\item[{const nmod\+\_\+mat\+\_\+t}]{A}{, }\item[{const nmod\+\_\+mat\+\_\+t}]{B}{}\end{DoxyParamCaption})}
+
+
+
+Performs matrix multiplication over GF(2). 
+
+Performs matrix multiplication over GF(2).
+
+This function multiplies two matrices A and B, both defined over the finite field GF(2), and stores the result in matrix C. The multiplication is performed using bitwise operations, where addition is equivalent to XOR and multiplication is equivalent to AND. The function multiplies matrices over GF(2) using three nested loops. The outer loops iterate over rows of A and columns of B to compute each entry of the result matrix C. For each (i, j) entry, it initializes C\mbox{[}i\mbox{]}\mbox{[}j\mbox{]} to 0, then uses the inner loop to XOR the bitwise AND of A\mbox{[}i\mbox{]}\mbox{[}k\mbox{]} and B\mbox{[}k\mbox{]}\mbox{[}j\mbox{]} into C\mbox{[}i\mbox{]}\mbox{[}j\mbox{]}. This performs matrix multiplication using bitwise operations, with \& as multiplication and \texorpdfstring{$^\wedge$}{\string^} as addition in GF(2). The function assumes the matrices are properly initialized and dimensionally compatible.
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & The first matrix to be multiplied, represented as an nmod\+\_\+mat\+\_\+t type from the FLINT library. \\
+\hline
+{\em B} & The second matrix to be multiplied, also represented as an nmod\+\_\+mat\+\_\+t type from the FLINT library.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The function assumes that the matrices A and B are compatible for multiplication, meaning the number of columns in A must equal the number of rows in B. It also assumes that the result matrix C has been initialized with appropriate dimensions to hold the product of A and B.
+\end{DoxyNote}
+The function uses the nmod\+\_\+mat\+\_\+get\+\_\+entry and nmod\+\_\+mat\+\_\+set\+\_\+entry functions from the FLINT library to access and modify matrix entries. It iterates through each row of A and each column of B, computing the product for each entry in C.
+
+
+\begin{DoxyParams}{Parameters}
+{\em C} & The result matrix where the product of A and B will be stored, also represented as an nmod\+\_\+mat\+\_\+t type from the FLINT library.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void This function does not return a value; it modifies the matrix C in place to store the result of the multiplication. 
+\end{DoxyReturn}
+\Hypertarget{matrix_8h_aac32546c5107ae59188824ab1e6520d2}\index{matrix.h@{matrix.h}!print\_matrix@{print\_matrix}}
+\index{print\_matrix@{print\_matrix}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{print\_matrix()}{print\_matrix()}}
+{\footnotesize\ttfamily \label{matrix_8h_aac32546c5107ae59188824ab1e6520d2} 
+void print\+\_\+matrix (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fp}{, }\item[{nmod\+\_\+mat\+\_\+t}]{matrix}{}\end{DoxyParamCaption})}
+
+
+
+Prints the contents of a matrix to a file stream. 
+
+Prints the contents of a matrix to a file stream.
+
+It takes two parameters\+: a FILE \texorpdfstring{$\ast$}{*}fp, which is the output stream, and an nmod\+\_\+mat\+\_\+t matrix, which represents the matrix to be printed. The function begins by printing the dimensions of the matrix in the format $<$rows x columns matrix$>$, using the r and c fields of nmod\+\_\+mat\+\_\+t matrix.
+
+It then iterates through each row and column of the matrix, printing each entry in a formatted manner. Each row is enclosed in square brackets, and entries are separated by spaces. After printing all entries in a row, it moves to the next line for the next row.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fp} & The file pointer to which the matrix will be printed. This can be a file opened in write mode or stdout for console output.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The function assumes that the matrix is non-\/empty and that the nmod\+\_\+mat\+\_\+t structure is properly initialized. It does not handle any errors related to file operations or matrix initialization.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em matrix} & The matrix to be printed, represented as an nmod\+\_\+mat\+\_\+t type from the FLINT library. This structure allows efficient access and manipulation of matrix data under modular arithmetic.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void This function does not return a value; it performs output operations directly to the specified file stream. 
+\end{DoxyReturn}
+\Hypertarget{matrix_8h_abc101d9b1808a35b513e6bf1afbbeaea}\index{matrix.h@{matrix.h}!rref@{rref}}
+\index{rref@{rref}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{rref()}{rref()}}
+{\footnotesize\ttfamily \label{matrix_8h_abc101d9b1808a35b513e6bf1afbbeaea} 
+void rref (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+rows}{, }\item[{int}]{num\+\_\+cols}{, }\item[{int(\texorpdfstring{$\ast$}{*})}]{H}{\mbox{[}num\+\_\+cols\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Transforms a matrix into Reduced Row Echelon Form. 
+
+Transforms a matrix into Reduced Row Echelon Form.
+
+This function takes a binary matrix H, represented as a two-\/dimensional array of integers, and transforms it into its Reduced Row Echelon Form (RREF). The RREF is a form where each leading entry in a row is 1, and all entries in the column above and below each leading 1 are 0. The function performs forward and back substitution to achieve this form. It iterates through the columns of the matrix, finding non-\/zero elements to use as pivot points, and then eliminates other entries in the same column by XORing rows.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+rows} & The number of rows in the matrix H, which is used to determine the range of rows that will be affected by the transformation. \\
+\hline
+{\em num\+\_\+cols} & The number of columns in the matrix H, which is used to determine the range of columns that will be affected by the transformation. \\
+\hline
+{\em H} & The binary matrix that will be transformed into Reduced Row Echelon Form, represented as a two-\/dimensional array of integers. Each entry in the matrix is either 0 or 1, representing elements in GF(2).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The notation (\texorpdfstring{$\ast$}{*}H)\mbox{[}num\+\_\+cols\mbox{]} in the function parameter list means that H is a pointer to an array of num\+\_\+cols integers. In other words, H points to the first element of a 2D array where each row contains num\+\_\+cols elements. This allows you to use H\mbox{[}i\mbox{]}\mbox{[}j\mbox{]} inside the function to access the element at row i and column j, just like with a regular 2D array. The compiler needs to know the size of each row (num\+\_\+cols) to correctly compute the memory offset for each element. This is why num\+\_\+cols must be specified in the parameter type. 
+\end{DoxyNote}
+\Hypertarget{matrix_8h_ab077edda24692d5e752666a914d56d80}\index{matrix.h@{matrix.h}!transpose\_matrix@{transpose\_matrix}}
+\index{transpose\_matrix@{transpose\_matrix}!matrix.h@{matrix.h}}
+\doxysubsubsection{\texorpdfstring{transpose\_matrix()}{transpose\_matrix()}}
+{\footnotesize\ttfamily \label{matrix_8h_ab077edda24692d5e752666a914d56d80} 
+void transpose\+\_\+matrix (\begin{DoxyParamCaption}\item[{int}]{rows}{, }\item[{int}]{cols}{, }\item[{int}]{matrix}{\mbox{[}rows\mbox{]}\mbox{[}cols\mbox{]}, }\item[{int}]{transpose}{\mbox{[}cols\mbox{]}\mbox{[}rows\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Computes the transpose of a matrix. 
+
+Computes the transpose of a matrix.
+
+This function takes a matrix defined by its number of rows and columns, and fills a new matrix with the transposed values. The transpose of a matrix is obtained by swapping its rows and columns, meaning that the element at position (i, j) in the original matrix becomes the element at position (j, i) in the transposed matrix. So that the elements of the firsr row in the original matrix becomes the elements at the first column in the transposed matrix.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & The number of rows in the original matrix. \\
+\hline
+{\em cols} & The number of columns in the original matrix.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The function assumes that the input matrix is well-\/formed and that the transpose matrix has been allocated with appropriate dimensions.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em matrix} & The original matrix to be transposed, represented as a two-\/dimensional array of integers. \\
+\hline
+{\em transpose} & The transposed matrix, which will be filled with the transposed values of the original matrix.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void This function does not return a value; it modifies the transpose matrix in place. 
+\end{DoxyReturn}

@@ -1,0 +1,297 @@
+\doxysection{signature-\/scheme/src/main.c File Reference}
+\hypertarget{main_8c}{}\label{main_8c}\index{signature-\/scheme/src/main.c@{signature-\/scheme/src/main.c}}
+
+
+Main entry point and core command handling for the signature scheme.  
+
+
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$flint/flint.\+h$>$}\newline
+{\ttfamily \#include $<$flint/nmod\+\_\+mat.\+h$>$}\newline
+{\ttfamily \#include "{}params.\+h"{}}\newline
+{\ttfamily \#include "{}time.\+h"{}}\newline
+{\ttfamily \#include "{}keygen.\+h"{}}\newline
+{\ttfamily \#include "{}signer.\+h"{}}\newline
+{\ttfamily \#include "{}verifier.\+h"{}}\newline
+{\ttfamily \#include "{}utils.\+h"{}}\newline
+{\ttfamily \#include "{}constants.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_ad03edd890f8bcba1b150fa26c5ff3ddc}{keygen}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Key generation function for the signature scheme. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_a16365045a1376d15937af832e1f8b0be}{sign}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Responsible for signing a message using the signature scheme. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_ad771c3d281bef6f8cf5b43de4b322cd6}{verify}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Responsible for verifying a signature against a message using the signature scheme. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Main function of the signature scheme program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main entry point and core command handling for the signature scheme. 
+
+This file implements the main function and the three primary commands for the signature scheme\+:
+\begin{DoxyItemize}
+\item keygen\+: Key generation
+\item sign\+: Message signing ~\newline
+
+\item verify\+: Signature verification
+\end{DoxyItemize}
+
+Each command is handled by its own function, which parses command-\/line arguments, manages file I/O, and coordinates the use of supporting modules (matrix operations, parameter loading, etc). 
+
+\label{doc-func-members}
+\Hypertarget{main_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8c_ad03edd890f8bcba1b150fa26c5ff3ddc}\index{main.c@{main.c}!keygen@{keygen}}
+\index{keygen@{keygen}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{keygen()}{keygen()}}
+{\footnotesize\ttfamily \label{main_8c_ad03edd890f8bcba1b150fa26c5ff3ddc} 
+int keygen (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Key generation function for the signature scheme. 
+
+It is the key generation function for the signature scheme.
+
+First, it checks for command line arguments to determine if it should use seed mode or regenerate keys. It then opens the output file to write the generated keys. It retrieves user input for the parameters of the keys, initializes matrices for the codes, and generates the keys based on the specified parameters. The generated keys are written to the output file, and the matrices are cleared before closing the output file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & The number of command line arguments passed to the keygen function. \\
+\hline
+{\em argv} & An array of strings representing the command line arguments passed to the keygen function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 on success, or a non-\/zero value on failure.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{params_8c_a4000e73bed1d5331e34887516aea3b5e}{get\+\_\+user\+\_\+input} 
+
+\doxylink{keygen_8c_a234de192b3dd4ce89cc8dca7cdf93003}{generate\+\_\+keys} 
+
+\doxylink{utils_8c_a9b8caa6ee7537617613701fce02b972c}{load\+\_\+params} 
+
+\doxylink{params_8c_ae95ad42694d88562c68affd882ded1f1}{get\+\_\+\+H\+\_\+\+A\+\_\+n} 
+
+\doxylink{params_8c_a1b3b9a55d09c8c72f3248237204e8828}{get\+\_\+\+H\+\_\+\+A\+\_\+k} 
+
+\doxylink{params_8c_a8c3d9797b4f398697fc9b4d582e0a3f2}{get\+\_\+\+H\+\_\+\+A\+\_\+d} 
+
+\doxylink{params_8c_a2a6835078950a2deec7b40eca0983778}{get\+\_\+\+G1\+\_\+n} 
+
+\doxylink{params_8c_a2c3a17200d4cccfa5e8ea63a654e953c}{get\+\_\+\+G1\+\_\+k} 
+
+\doxylink{params_8c_a6076ae37d671c60c7a0be47a2a0f90f0}{get\+\_\+\+G1\+\_\+d} 
+
+\doxylink{params_8c_adeab264976d0174ad8d7a5f4baaeac41}{get\+\_\+\+G2\+\_\+n} 
+
+\doxylink{params_8c_a9c72cbbed3284988951097b165be5044}{get\+\_\+\+G2\+\_\+k} 
+
+\doxylink{params_8c_a42fcf740c66429c4b8d197f76e1a6246}{get\+\_\+\+G2\+\_\+d}
+\end{DoxySeeAlso}
+At first it checks for command line arguments to determine if it should use seed mode or regenerate keys. It then opens the output file to write the generated keys. It retrieves user input for the parameters of the keys, initializes matrices for the codes, and generates the keys based on the specified parameters. The generated keys are written to the output file, and the matrices are cleared before closing the output file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & It is the number of command line arguments passed to the keygen function. \\
+\hline
+{\em argv} & It is an array of strings representing the command line arguments passed to the keygen function.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int It returns 0 on success, or a non-\/zero value on failure.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{params_8c_a4000e73bed1d5331e34887516aea3b5e}{get\+\_\+user\+\_\+input} 
+
+\doxylink{keygen_8c_a234de192b3dd4ce89cc8dca7cdf93003}{generate\+\_\+keys} 
+
+\doxylink{utils_8c_a9b8caa6ee7537617613701fce02b972c}{load\+\_\+params} 
+
+\doxylink{params_8c_ae95ad42694d88562c68affd882ded1f1}{get\+\_\+\+H\+\_\+\+A\+\_\+n} 
+
+\doxylink{params_8c_a1b3b9a55d09c8c72f3248237204e8828}{get\+\_\+\+H\+\_\+\+A\+\_\+k} 
+
+\doxylink{params_8c_a8c3d9797b4f398697fc9b4d582e0a3f2}{get\+\_\+\+H\+\_\+\+A\+\_\+d} 
+
+\doxylink{params_8c_a2a6835078950a2deec7b40eca0983778}{get\+\_\+\+G1\+\_\+n} 
+
+\doxylink{params_8c_a2c3a17200d4cccfa5e8ea63a654e953c}{get\+\_\+\+G1\+\_\+k} 
+
+\doxylink{params_8c_a6076ae37d671c60c7a0be47a2a0f90f0}{get\+\_\+\+G1\+\_\+d} 
+
+\doxylink{params_8c_adeab264976d0174ad8d7a5f4baaeac41}{get\+\_\+\+G2\+\_\+n} 
+
+\doxylink{params_8c_a9c72cbbed3284988951097b165be5044}{get\+\_\+\+G2\+\_\+k} 
+
+\doxylink{params_8c_a42fcf740c66429c4b8d197f76e1a6246}{get\+\_\+\+G2\+\_\+d} 
+\end{DoxySeeAlso}
+\Hypertarget{main_8c_a0ddf1224851353fc92bfbff6f499fa97}\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8c_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Main function of the signature scheme program. 
+
+It handles command line arguments to either generate keys, sign a message, or verify a signature. It supports three main commands\+: keygen, sign, and verify.
+
+• keygen\+: Generates the keys required for the signature scheme. • sign\+: Signs a message using the generated keys. • verify\+: Verifies a signature against a message using the public key. It also checks for the existence of necessary directories (matrix cache and output directory) and initializes them if they do not exist.
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & The number of command line arguments passed to the program. It is used to determine how many arguments were provided and to parse them accordingly. \\
+\hline
+{\em argv} & An array of strings representing the command line arguments passed to the program. Each element in the array corresponds to a command line argument, with argv\mbox{[}0\mbox{]} being the program name and subsequent elements being the actual arguments provided by the user. This array is used to determine the command to execute (key generation, signing, or verification) and to parse any additional options or parameters that may be required for those commands. The program expects specific commands and options to be provided, and it uses this array to handle those commands appropriately.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 on success, or a non-\/zero value on failure. The return value indicates the success or failure of the operation performed by the main function. If the command is recognized and executed successfully (key generation, signing, or verification), it returns 0. If there are errors such as missing arguments, unrecognized commands, or file I/O issues, it returns a non-\/zero value to indicate failure. This allows the calling environment (such as a shell or another program) to determine whether the operation was successful or if there were errors that need to be addressed.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{utils_8c_a086645594d782274944ebe259a8f748d}{ensure\+\_\+matrix\+\_\+cache} 
+
+\doxylink{utils_8c_aca16e242c76b24e74eddb68763efdead}{ensure\+\_\+output\+\_\+directory} 
+\end{DoxySeeAlso}
+\Hypertarget{main_8c_a16365045a1376d15937af832e1f8b0be}\index{main.c@{main.c}!sign@{sign}}
+\index{sign@{sign}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{sign()}{sign()}}
+{\footnotesize\ttfamily \label{main_8c_a16365045a1376d15937af832e1f8b0be} 
+int sign (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Responsible for signing a message using the signature scheme. 
+
+This function is responsible for signing a message using the signature scheme.
+
+It processes command line arguments to get the message file and output signature file. First, it checks if the message file is provided, and if not, it prints usage instructions. Then it loads the parameters for the codes, reads the message from the file or generates it if not found, and normalizes the message length. It initializes matrices for the codes and generates the necessary matrices (H\+\_\+A, G1, G2) using the specified parameters. The function then generates the signature by calling generate\+\_\+signature, which computes the signature based on the message and the codes. Finally, it saves the generated signature, hash, and public key to the output directory, clears the matrices, and frees the allocated memory for the message.
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & The number of command line arguments passed to the sign function. \\
+\hline
+{\em argv} & An array of strings representing the command line arguments passed to the sign function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 on success, or a non-\/zero value on failure.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function uses Flint\textquotesingle{}s nmod\+\_\+mat\+\_\+t for matrix operations, which are essential for the signature generation process.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{utils_8c_a9b8caa6ee7537617613701fce02b972c}{load\+\_\+params} 
+
+\doxylink{utils_8c_ae7369b1b9abc62b85ee1e13cf4db0566}{read\+\_\+file\+\_\+or\+\_\+generate} 
+
+\doxylink{utils_8c_adc1e64667d966146e31b71ac4476d009}{normalize\+\_\+message\+\_\+length} 
+
+\doxylink{keygen_8c_a5e0b69ad3033a8fdc973789a0abd4b93}{get\+\_\+or\+\_\+generate\+\_\+matrix\+\_\+with\+\_\+seed} 
+
+\doxylink{signer_8c_af266967e3aac9cdead3c3995779fc05d}{generate\+\_\+signature} 
+
+\doxylink{utils_8c_ab6d5b54e91321609a751e995f91e457b}{save\+\_\+matrix} 
+
+\doxylink{utils_8c_aefef1fc8ea5469aff22fce16404f82d4}{load\+\_\+matrix}
+\end{DoxySeeAlso}
+It processes command line arguments to get the message file and output signature file. At first it checks if the message file is provided, and if not, it prints usage instructions. Then it loads the parameters for the codes, reads the message from the file or generates it if not found, and normalizes the message length. It initializes matrices for the codes and generates the necessary matrices (H\+\_\+A, G1, G2) using the specified parameters. The function then generates the signature by calling generate\+\_\+signature, which computes the signature based on the message and the codes. Finally, it saves the generated signature, hash, and public key to the output directory, clears the matrices, and frees the allocated memory for the message.
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & It is the number of command line arguments passed to the sign function. \\
+\hline
+{\em argv} & It is an array of strings representing the command line arguments passed to the sign function.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int It returns 0 on success, or a non-\/zero value on failure.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function uses Flint\textquotesingle{}s nmod\+\_\+mat\+\_\+t for matrix operations, which are essential for the signature generation process.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{utils_8c_a9b8caa6ee7537617613701fce02b972c}{load\+\_\+params} 
+
+\doxylink{utils_8c_ae7369b1b9abc62b85ee1e13cf4db0566}{read\+\_\+file\+\_\+or\+\_\+generate} 
+
+\doxylink{utils_8c_adc1e64667d966146e31b71ac4476d009}{normalize\+\_\+message\+\_\+length} 
+
+\doxylink{keygen_8c_a5e0b69ad3033a8fdc973789a0abd4b93}{get\+\_\+or\+\_\+generate\+\_\+matrix\+\_\+with\+\_\+seed} 
+
+\doxylink{signer_8c_af266967e3aac9cdead3c3995779fc05d}{generate\+\_\+signature} 
+
+\doxylink{utils_8c_ab6d5b54e91321609a751e995f91e457b}{save\+\_\+matrix} 
+
+\doxylink{utils_8c_aefef1fc8ea5469aff22fce16404f82d4}{load\+\_\+matrix} 
+\end{DoxySeeAlso}
+\Hypertarget{main_8c_ad771c3d281bef6f8cf5b43de4b322cd6}\index{main.c@{main.c}!verify@{verify}}
+\index{verify@{verify}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{verify()}{verify()}}
+{\footnotesize\ttfamily \label{main_8c_ad771c3d281bef6f8cf5b43de4b322cd6} 
+int verify (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Responsible for verifying a signature against a message using the signature scheme. 
+
+This function is responsible for verifying a signature against a message using the signature scheme.
+
+It processes command line arguments to get the message file and signature file. First, it checks if both the message file and signature file are provided, and if not, it prints usage instructions. It loads the parameters for the codes, reads the message from the file, and initializes matrices for the codes. The function then loads the signature from the specified file and generates the parity check matrix (H\+\_\+A) using the specified parameters. It also loads the hash of the message and the public key matrix (F) from the output directory. Finally, it verifies the signature by calling verify\+\_\+signature, which checks if the signature is valid for the given message and parameters. The results of the verification are written to an output file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & The number of command line arguments passed to the verify function. \\
+\hline
+{\em argv} & An array of strings representing the command line arguments passed to the verify function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 on success, or a non-\/zero value on failure.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+These functions use Flint\textquotesingle{}s nmod\+\_\+mat\+\_\+t for matrix operations, which are essential for the signature verification process.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{utils_8c_a9b8caa6ee7537617613701fce02b972c}{load\+\_\+params} 
+
+\doxylink{utils_8c_ab5e8b6289c8d0f065872cbe531443692}{read\+\_\+file} 
+
+\doxylink{utils_8c_aefef1fc8ea5469aff22fce16404f82d4}{load\+\_\+matrix} 
+
+\doxylink{keygen_8c_a5e0b69ad3033a8fdc973789a0abd4b93}{get\+\_\+or\+\_\+generate\+\_\+matrix\+\_\+with\+\_\+seed} 
+
+\doxylink{verifier_8c_a02f3b5f577378454c07b9e92ea9b3706}{verify\+\_\+signature}
+\end{DoxySeeAlso}
+It processes command line arguments to get the message file and signature file. At first it checks if both the message file and signature file are provided, and if not, it prints usage instructions. It loads the parameters for the codes, reads the message from the file, and initializes matrices for the codes. The function then loads the signature from the specified file and generates the parity check matrix (H\+\_\+A) using the specified parameters. It also loads the hash of the message and the public key matrix (F) from the output directory. Finally, it verifies the signature by calling verify\+\_\+signature, which checks if the signature is valid for the given message and parameters. The results of the verification are written to an output file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & It is the number of command line arguments passed to the verify function. \\
+\hline
+{\em argv} & It is an array of strings representing the command line arguments passed to the verify function.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int It returns 0 on success, or a non-\/zero value on failure.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+These functions use Flint\textquotesingle{}s nmod\+\_\+mat\+\_\+t for matrix operations, which are essential for the signature verification process.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{utils_8c_a9b8caa6ee7537617613701fce02b972c}{load\+\_\+params} 
+
+\doxylink{utils_8c_ab5e8b6289c8d0f065872cbe531443692}{read\+\_\+file} 
+
+\doxylink{utils_8c_aefef1fc8ea5469aff22fce16404f82d4}{load\+\_\+matrix} 
+
+\doxylink{keygen_8c_a5e0b69ad3033a8fdc973789a0abd4b93}{get\+\_\+or\+\_\+generate\+\_\+matrix\+\_\+with\+\_\+seed} 
+
+\doxylink{verifier_8c_a02f3b5f577378454c07b9e92ea9b3706}{verify\+\_\+signature} 
+\end{DoxySeeAlso}

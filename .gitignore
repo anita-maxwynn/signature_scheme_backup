@@ -58,4 +58,6 @@ dkms.conf
 sig
 output
 params.txt
-message.txtcodewords.txt
+message.txt
+codewords.txt
+codewords.txt
